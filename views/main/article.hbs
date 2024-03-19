@@ -1,0 +1,16 @@
+                <div class="container px-5 my-5">
+                                <header class="mb-4">
+                                    <!-- Post title-->
+                                    <h1 class="fw-bolder mb-1">{{title}}</h1>
+                                    <!-- Post meta content-->
+                                    <div class="text-muted fst-italic mb-2">Atualizado em {{publish_date}}</div>
+                                    <!-- Post categories-->
+                                    {{!-- for cat in top_cats --}}
+                                    <div class="badge bg-secondary text-decoration-none link-light">{{!--cat[0].title--}}</div>
+                                    {{!-- endfor --}}
+                                </header>
+                </div>
+
+                <div class="content" style="text-align:justify">
+                    {{{content}}}
+                </div><br><hr>

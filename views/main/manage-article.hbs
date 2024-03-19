@@ -1,0 +1,92 @@
+<div class="container px-5 py-5">
+<button type="button" data-bs-toggle="modal" class="btn btn-lg btn-primary mb-5" data-bs-target="#insert_book">Add a book</button>
+<!-- Modal 1 for adding a book -->
+<div class="modal fade" id="insert_book" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Add a book</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="/add" method="post">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="author" class="col-xs-2 control-label">Author</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="author" placeholder="Author" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="title" class="col-xs-2 control-label">Title</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="title" placeholder="Title" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="description" class="col-xs-2 control-label">Description</label>
+                        <div class="col-xs-10">
+                            <textarea class="form-control" rows="5" name="description" placeholder="Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="content" class="col-xs-2 control-label">Content</label>
+                        <div class="col-xs-10">
+                            <textarea class="form-control" rows="10" name="content" placeholder="Content"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="image" class="col-xs-2 control-label">Image URL</label>
+                        <div class="col-xs-10">
+                            <input type="text" class="form-control" name="image" placeholder="Image URL" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="entryForm" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Modal 1 -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody class="books">
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+fetch('/all').then((response) => {
+    response.json().then((data) => {
+        if (data.error) {
+            console.log(data.error)
+        } else {
+            data.items.forEach((item) => {
+                str = `<tr>
+                       <td>${item.key}</td>
+                       <td>${item.publish_date}</td>
+                       <td>${item.title}</td>
+                       </tr>`
+
+                $('.books').append(str);
+            });
+        }
+    });
+});
+
+</script>

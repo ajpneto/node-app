@@ -1,0 +1,135 @@
+        <main class="flex-shrink-0">
+            <!-- Page Content-->
+<div hidden id="TOC"><b>Sumário</b></div>
+            <section class="py-5">
+                <div class="container px-5">
+                    <h1 class="fw-bolder fs-5 mb-4">Nobel prize winners</h1>
+                    {{#each results}}{{#if @first}}
+                    <div class="card border-0 shadow rounded-3 overflow-hidden wow bounceInDown">
+                        <div class="card-body p-0"
+style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp')">
+                            <div class="row gx-0">
+                                <div class="col-lg-6 col-xl-5 py-lg-5">
+                                    <div class="p-4 p-md-5">
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Laureates</div>
+                                        <div class="h2 fw-bolder text-light">{{title}}</div>
+                                        <p class="text-light">Estamos com o site em manutenção e alguns recursos podem estar indisponíveis ou instáveis no momento.</p>
+                                        <a class="stretched-link nav-link text-light" href="/books/{{key}}">
+                                            Mais informação
+                                            <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-7"><div class="bg-featured-blog" style="background-image: url('/img/banner5.jpg')"></div></div>
+                            </div>
+                        </div>
+                    </div>{{/if}}
+                    {{/each}}
+                </div>
+            </section>
+            <section class="py-5 bg-light">
+                <div class="container px-5">
+                    <div class="row gx-5">
+                        <div class="col-xl-8">
+                            <h2 class="fw-bolder fs-5 mb-4">Laureates</h2>
+                            <div class="news mb-4"></div>
+                            <div class="text-end mb-5 mb-xl-0">
+                                <!--<a class="text-decoration-none" href="/blog">
+                                    Mais notícias
+                                    <i class="bi bi-arrow-right"></i>
+                                </a>-->
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="card border-0 h-100">
+                                <div class="card-body p-4">
+                                    <div class="d-flex h-100 align-items-center justify-content-center">
+                                        <!--<div class="text-center">
+                                            <div class="h6 fw-bolder">Contato</div>
+                                            <p class="text-muted mb-4">
+                                                Para perguntas da imprensa, envie-nos um e-mail para
+                                                <br />
+                                                <a href="#!">aentech.info@gmail.com</a>
+                                            </p>
+                                            <div class="h6 fw-bolder">Siga me</div>
+                                            <a class="fs-5 px-2 link-dark" href="https://twitter.com/neto_ajp" target="_blank"><i class="bi-twitter"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://facebook.com/neto.ajp" target="_blank"><i class="bi-facebook"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://www.linkedin.com/in/antenor-neto-8239551b7/" target="_blank"><i class="bi-linkedin"></i></a>
+                                            <a class="fs-5 px-2 link-dark" href="https://instagram.com/neto.ajp" target="_blank"><i class="bi-instagram"></i></a>
+                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Blog preview section-->
+            <section class="py-5">
+                <div class="container px-5">
+                    <h2 class="fw-bolder fs-5 mb-4"><a class="nav-link" href="/prizes">Prizes</a></h2>
+                    <div class="row gx-5">
+                        {{#each prizes}}
+                        <div class="col-lg-4 mb-5">
+                            <div class="card shadow border-0">
+                                <img class="card-img-top" src="/img/aen.jpg" alt="..." />
+                                <div class="card-body p-4">
+                                    {{!-- for cat in top_cats --}}
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{!--cat[0].title--}}</div>
+                                    {{!-- endfor --}}
+                                    {{#each laureates}}
+                                    <h5 class="card-title mb-3">{{firstname}} {{surname}}</h5>
+                                    {{#if @first}}
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        Shared {{share}}
+                                    </h6>
+                                    <p class="card-text">{{motivation}}</p>
+                                    {{/if}}
+                                    {{/each}}
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="/img/logo2.png" width="50" alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold text-uppercase">{{category}}</div>
+                                                <div class="text-muted">{{year}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+
+
+                    <div class="text-end mb-5 mb-xl-0">
+                        <a class="text-decoration-none" href="#!">
+                            {{>paginate}}
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+<script>
+
+fetch('https://api.nobelprize.org/v1/laureate.json').then((response) => {
+    response.json().then((data) => {
+        if (data.error) {
+            console.log(data.error)
+        } else {
+            data.laureates.forEach((item) => {
+
+                str = `<div class="small text-muted">${item.born} - ${item.died}</div>
+                          <h3>${item.firstname} ${item.surname}</h3>
+                       </div>`
+
+                $('.news').append(str);
+            });
+        }
+    });
+});
+
+</script>
