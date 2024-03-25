@@ -8,7 +8,7 @@ const port = process.env.PORT || 8080;
 
 const app = express();
 
-//A Handlebars helper
+//A Handlebars custom helper function
 hbs.registerHelper('copyrightYear', function() {
   var year = new Date().getFullYear();
 

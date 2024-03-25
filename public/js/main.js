@@ -104,7 +104,7 @@ anchor.appendChild(heading);
 
 // Agora cria um link para essa seção.
 var link = document.createElement("a");
-link.classList.add("text-light");
+link.classList.add("text-dark");
 link.href = "#TOC" + sectionNumber;
 // Destino do link
 link.innerHTML = heading.innerHTML;

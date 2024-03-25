@@ -17,28 +17,36 @@ const getHashedPassword = (password) => {
     return hashedPassword;
 }
 
-
 router.get('/register', requireAuth, (req, res) => {
     res.render('auth/register');
 });
 router.post('/register', requireAuth, (req, res) => {
     const { email, firstName, lastName, password, confirmPassword } = req.body;
     const hashedPassword = getHashedPassword(password);
-    // Store user into the database
-    if(password === confirmPassword){
+    db.fetch({'email?contains': email}).then((data) => {
+        if(data.items === undefined || data.items.length == 0){
+            // Store user into the database
+            if(password === confirmPassword){
                 db.put({firstName, lastName, email, password: hashedPassword});
 
                 res.render('auth/login', {
-                    message: email + ' registered. Please login to continue.',
+                    message: email + ' Registered. Please login to continue.',
                     messageClass: 'alert-success'
                 });
-    } else {
-        res.render('auth/register', {
-            message: 'Password does not match',
-            messageClass: 'alert-danger'
-        });
-    }
+            } else {
+                res.render('auth/register', {
+                    message: 'Password does not match',
+                    messageClass: 'alert-danger'
+                });
+            };
 
+        }else{
+            res.render('auth/register', {
+                message: 'User already registered. Please login to continue',
+                messageClass: 'alert-danger'
+            });
+        };
+    });
 });
 
 

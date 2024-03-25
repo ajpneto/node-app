@@ -3,9 +3,8 @@
                 <div class="container px-0">
                     <div hidden id="TOC"><b>Sumário</b></div>
                     <!--<h1 class="fw-bolder fs-5 mb-4">Blog da Empresa</h1>-->
-                    {{#unless results}}{{>header}}{{/unless}}
                     {{#each results}}{{#if @first}}
-                    <div class="card border-0 shadow rounded-3 overflow-hidden wow bounceInDown">
+                    <div class="card border-0 shadow rounded-3 overflow-hidden wow pulse">
                         <div class="card-body p-0" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp')">
                             <div class="row gx-0">
                                 <div class="col-lg-6 col-xl-5 py-lg-5">
@@ -91,6 +90,7 @@
                     </div>
                 </div>
             </section>
+{{>featured}}
 {{/unless}}
             {{!--about--}}
             {{!--partners--}}
@@ -111,7 +111,6 @@
                 </div>
             </section>
         </main>
-{{>tmp}}
 {{>modal2}}
 
 <script>

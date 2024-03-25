@@ -11,7 +11,7 @@ const Books = deta.Base("books");
 
 const items_by_category = require('../../controllers/request');
 
-router.get('/local', (req, res) => {
+router.get('/', (req, res) => {
     items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
         const items = [];
         for (const [key, value] of Object.entries(data.categories)) {
@@ -19,14 +19,16 @@ router.get('/local', (req, res) => {
             items.push({category: key, value});
         };
 //const groupByAuthor = data.items.groupBy(item => item.author);
-        res.render('main/tmp', items);
+        res.render('main/home', items);
     });
 });
 
-
-router.get('/', (req, res) => {
-    res.render('main/home');
+router.get('/reports', (req, res) => {
+    items_by_category('https://aen.pythonanywhere.com/reports', (error, data) => {
+        res.send(data);
+    });
 });
+
 
 router.get('/about', (req, res) => {
     res.render('main/about');

@@ -2,7 +2,7 @@
             <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark bg-image"
                      style="background-image: url('/img/banner5.jpg');">
                 <div class="container">
-                    <a class="navbar-brand fw-bold fs-6" href="/"><img src="/img/logo.png" width="40"><span> Technology & Information</a>
+                    <a class="navbar-brand fw-bold fs-6" href="/"><img src="/img/logo.png" width="40"><span> Tecnologia & Informação</a>
                     <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span>Mais</span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -22,6 +22,16 @@ href="" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="
                                        Logout</a></li>-->
                                 </ul>
                             </li>
+{{#if results}}
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" id="year" type="number" placeholder="1912" min="1912"
+max="2023" aria-label="Search for..." aria-describedby="btnNavbarSearch"/>
+                    <button class="btn btn-primary" id="search" type="button">
+<i class="fas fa-search"></i></button>
+                </div>
+            </form>
+{{/if}}
                         </ul>
                     </div>
                 </div>
