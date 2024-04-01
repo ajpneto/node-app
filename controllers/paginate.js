@@ -11,7 +11,7 @@ let paginateDB =  function(view){
     const response = db.fetch();
     response.then((data) => {
         const page = parseInt(req.query.page);
-        const limit = 6//parseInt(req.query.limit);
+        const limit = 12//parseInt(req.query.limit);
         const startIndex = (page -1) * limit;
         const endIndex = page * limit;
 

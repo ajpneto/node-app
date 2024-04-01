@@ -15,6 +15,12 @@ hbs.registerHelper('copyrightYear', function() {
   return new hbs.SafeString(year);
 });
 
+hbs.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,100);
+    return new hbs.SafeString(theString)
+});
+
+
 // Setup view engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');

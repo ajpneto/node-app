@@ -1,37 +1,47 @@
          <!--section-->
          <div class="container px-0 menu"><br>
-<!--           <br><div class="badge rounded-pill text-light d-flex justify-content-center wow fadeInUp"
-                  data-wow-delay="0.1s" style="background-image: url('/img/banner5.jpg');">
-                  <h3>Postagens</h3>
-               </div><br>-->
                <div class="row g-4">
                    {{#each results}}
                    <div class="col-lg-6">
-                      <div class="d-flex align-items-center">
-                         <img class="flex-shrink-0 img-fluid rounded" src="{{image}}" alt="" style="width: 150px;">
-                      <div class="w-100 d-flex flex-column text-start ps-4">
-                         <h6 class="d-flex justify-content-between border-bottom pb-2">
-                         {{title}}
                             <span class="data">
                             <a class="nav-link" id="/posts/{{key}}"
-                               data-bs-toggle="modal" data-bs-target="#modal2"><i class="bi bi-eye"></i></a>
-                            </span>
-                         <!--<span class="fw-bold">{{publish_date}}</span>-->
+                               data-bs-toggle="modal" data-bs-target="#modal2">
+                      <div class="d-flex align-items-center">
+                            <img class="zoom flex-shrink-0 img-fluid rounded" src="{{image}}" alt="" style="width: 400px;">
+                      <div class="d-flex flex-column text-start ps-2"></a>
+                         <h6 class="d-flex justify-content-between fw-bold">
+                            {{title}}
                          </h6>
-                         <small class="fst-italic">{{author}}
-                            <span class="fw-bold">{{publish_date}}</span>
+                         <small class="fst-italic">
+                            <p>{{trimString description}}...</p>
                          </small>
+                         <ul class="list-unstyled list-inline mb-0 border-bottom pb-2">
+                            <li class="list-inline-item me-0">
+                              <i class="fas fa-star text-warning fa-xs"> </i>
+                            </li>
+                            <li class="list-inline-item me-0">
+                              <i class="fas fa-star text-warning fa-xs"></i>
+                            </li>
+                            <li class="list-inline-item me-0">
+                              <i class="fas fa-star text-warning fa-xs"></i>
+                            </li>
+                            <li class="list-inline-item me-0">
+                              <i class="fas fa-star text-warning fa-xs"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <i class="fas fa-star-half-alt text-warning fa-xs"></i>
+                            </li>
+                            <li class="list-inline-item">
+                              <p class="text-muted" id="publish_date">{{publish_date}}</p>
+                            </li>
+                         </ul>
                       </div>
                       </div>
-                   </div><br>
+                   </div>
                    {{/each}}
                </div>
          </div><hr>
          <!-- section -->
-
-         <div class="bg-image"
-              style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/026.webp');">
-         </div>
 
 
 <script>
@@ -51,7 +61,7 @@ console.log(url);
         $('#title').html(data.title);
         $('#description').html(data.description);
         $('.card img').attr('src', data.image);
-        $('#modal2 a').attr('href', '/books/' + data.key);
+        $('#modal2 a').attr('href', '/books/' + data.key + '#TOC');
 
     });
 

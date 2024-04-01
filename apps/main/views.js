@@ -11,7 +11,13 @@ const Books = deta.Base("books");
 
 const items_by_category = require('../../controllers/request');
 
+
 router.get('/', (req, res) => {
+    res.render('main/home');
+});
+
+
+router.get('/contact', (req, res) => {
     items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
         const items = [];
         for (const [key, value] of Object.entries(data.categories)) {
@@ -19,9 +25,15 @@ router.get('/', (req, res) => {
             items.push({category: key, value});
         };
 //const groupByAuthor = data.items.groupBy(item => item.author);
-        res.render('main/home', items);
+        res.render('main/index', items);
     });
 });
+
+
+router.get('/ch5m3d', (req, res) => {
+    res.render('main/ch5m3d');
+});
+
 
 router.get('/reports', (req, res) => {
     items_by_category('https://aen.pythonanywhere.com/reports', (error, data) => {
@@ -47,7 +59,7 @@ paginate.paginateAPI('https://api.nobelprize.org/v1/prize.json', 'main/','prizes
 });
 
 
-router.get('/books', paginate.paginateDB('main/home'), (req, res) => {
+router.get('/books', paginate.paginateDB('main/index'), (req, res) => {
 });
 
 router.get('/books/:key?', (req, res) => {

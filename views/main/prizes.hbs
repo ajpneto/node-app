@@ -1,24 +1,45 @@
             <!-- Page Content-->
-            <!-- Blog preview section-->
-            <section class="py-0" style="background-image: url('/img/b3.jpg')">
+<div hidden id="TOC"><b>Sumário</b></div>
+            <section class="py-1">
                 <div class="container px-1">
-                    <div hidden id="TOC"><b>Sumário</b></div>
-                    <img src="/img/aen.jpg" class="img-fluid mx-auto d-block rounded" alt="...">
-                    <!--<h2 class="fw-bolder fs-3 mb-4 text-center">Prizes</h2>-->
+                    {{#each results}}{{#if @first}}
+                    <div class="card border-0 shadow rounded-3 overflow-hidden">
+                        <div class="card-body p-0" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/007.webp')">
+                            <div class="row gx-3">
+                                <div class="col-lg-6 col-xl-5 py-lg-5">
+                    <h1 class="fw-bold fs-2 mb-4 text-light px-5">Nobel Winners</h1>
+                                    <div class="p-4 p-md-5">
+                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">Nobel Prizes</div>
+                                        <div class="h2 fw-bolder text-light">{{title}}</div>
+                                        <p class="text-light">Estamos com o site em manutenção e alguns recursos podem
+estar indisponíveis ou instáveis no momento.</p>
+                                        <a class="stretched-link nav-link text-light" href="books/2lq6znbrsnjy">
+                                            Mais informação
+                                            <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>{{/if}}
+                    {{/each}}
+                </div>
+            </section>
+            <section class="py-0">
+                <div class="container px-1">
                     <div class="row gx-3">
                         {{#each results}}
                         <div class="col-lg-4 mb-3">
-                            <div class="card shadow border-0">
-                                <!--<img class="card-img-top" src="/img/aen.jpg" alt="..." />-->
+                            <div class="card h-100 shadow border-0">
                                 <div class="card-body p-4">
-                                    {{!-- for cat in top_cats --}}
-                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">{{!--cat[0].title--}}</div>
-                                    {{!-- endfor --}}
                                     {{#each laureates}}
                                     <h5 class="card-title mb-3">{{firstname}} {{surname}}</h5>
                                     {{#if @first}}
+                                    {{!-- for cat in top_cats --}}
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Shared with</div>
+                                    {{!-- endfor --}}
                                     <h6 class="card-subtitle mb-2 text-muted">
-                                        Shared {{share}}
+                                        {{share}}
                                     </h6>
                                     <p class="card-text">{{motivation}}</p>
                                     {{/if}}
@@ -27,7 +48,7 @@
                                 <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
                                     <div class="d-flex align-items-end justify-content-between">
                                         <div class="d-flex align-items-center">
-                                            <img class="rounded-circle me-3" src="/img/logo-icon.png" width="50" alt="..." />
+                                            <img class="rounded-circle me-3" src="https://static.meionorte.com/uploads/imagens/2016/5/3/saiba-sobre-o-criador-do-premio-nobel-b453eba6-55db-42cc-89ea-00c5c9e7e172.jpg" width="60" alt="..." />
                                             <div class="small">
                                                 <div class="fw-bold text-uppercase">{{category}}</div>
                                                 <div class="text-muted">{{year}}</div>
@@ -42,11 +63,11 @@
                     <div class="text-end mb-5 mb-xl-0">
                         <a class="text-decoration-none" href="#!">
                            <ul class="pagination">
-                           {{#if previous}}<li class="page-item"><a class="page-link" href="/prizes?page={{previous.page}}">{{#each results}}{{#if @first}}{{year}}{{/if}}{{/each}}</a></li>{{/if}}
+                           {{#if previous}}<li class="page-item"><a class="page-link fw-bold" href="/prizes?page={{previous.page}}">{{#each results}}{{#if @first}}{{year}}{{/if}}{{/each}}</a></li>{{/if}}
                            <!--<li class="page-item"><a class="page-link" href="#">1</a></li>
                            <li class="page-item"><a class="page-link" href="#">2</a></li>
                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-                           {{#if next}}<li class="page-item"><a class="page-link" href="/prizes?page={{next.page}}">Previous</a></li>{{/if}}
+                           {{#if next}}<li class="page-item"><a class="page-link fw-bold" href="/prizes?page={{next.page}}">Previous</a></li>{{/if}}
                            </ul>
                         </a>
                     </div>
