@@ -4,7 +4,7 @@
                    {{#each results}}
                    <div class="col-lg-6">
                             <span class="data">
-                            <a class="nav-link" id="/posts/{{key}}"
+                            <a class="nav-link" id="/books_api/{{key}}"
                                data-bs-toggle="modal" data-bs-target="#modal2">
                       <div class="d-flex align-items-center">
                             <img class="zoom flex-shrink-0 img-fluid rounded" src="{{image}}" alt="" style="width: 400px;">
@@ -48,7 +48,6 @@
 
 $('.data').on('click', 'a', function() {
     var url = $(this).attr('id');
-console.log(url);
     var item_id = $('#modal2 a').attr('id');
 
     if(item_id === 'item_id'){

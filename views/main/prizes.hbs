@@ -4,7 +4,7 @@
                 <div class="container px-1">
                     {{#each results}}{{#if @first}}
                     <div class="card border-0 shadow rounded-3 overflow-hidden">
-                        <div class="card-body p-0" style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/007.webp')">
+                        <div class="card-body p-0" style="background-image: url('https://static01.nyt.com/images/2018/12/11/world/12xp-nobel/12xp-nobel-videoSixteenByNineJumbo1600.jpg')">
                             <div class="row gx-3">
                                 <div class="col-lg-6 col-xl-5 py-lg-5">
                     <h1 class="fw-bold fs-2 mb-4 text-light px-5">Nobel Winners</h1>
@@ -68,6 +68,14 @@ estar indisponíveis ou instáveis no momento.</p>
                            <li class="page-item"><a class="page-link" href="#">2</a></li>
                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
                            {{#if next}}<li class="page-item"><a class="page-link fw-bold" href="/prizes?page={{next.page}}">Previous</a></li>{{/if}}
+            <li class="page-item"><form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" id="year" type="number" placeholder="1912" min="1912"
+max="2023" aria-label="Search for..." aria-describedby="btnNavbarSearch"/>
+                    <button class="btn btn-primary" id="search" type="button">
+<i class="fas fa-search"></i></button>
+                </div>
+            </form></li>
                            </ul>
                         </a>
                     </div>

@@ -1,50 +1,41 @@
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white">
+            <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white shadow mb-2">
                 <div class="container">
-                    <a class="navbar-brand fw-bold fs-6" href="/"><img class="img-fluid rounded-circle mb-0 px-0" src="/img/new-logo.jpg" width="70"><span> Tecnologia & Informação</a>
-                    <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span>Mais</span></button>
+                    <a class="navbar-brand fw-bold fs-6" href="/"><img class="img-fluid px-0" src="/img/logo.png" width="70"><span> Tecnologia & Informação</a>
+                    <button class="navbar-toggler text-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item service-item rounded"><a class="nav-link" href="/books?page=1"><i class="bi bi-book px-2"></i> e-Books</a></li>
+                            <li class="nav-item service-item rounded"><a class="nav-link" href="/books?page=1"><i class="bi bi-book px-2 h4"></i> <!--e-Books--></a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog"
 href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-<i class="bi bi-tools"></i> Tools</a>
+<i class="bi bi-tools h4"></i> <!--Tools--></a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                                        <li><a class="dropdown-item" href="/ch5m3d#ch5m3d">
                                        CH5M3D</a></li>
-                                       <!--<li><a class="dropdown-item" href="/register">
-                                       Register</a></li>
-                                       <li><a class="dropdown-item" href="/logout">
+                                       <!--<li><a class="dropdown-item" href="/chemdoodle">
+                                       ChemDoodle</a></li>-->
+                                       <!--<li><a class="dropdown-item" href="/logout">
                                        Logout</a></li>-->
                                 </ul>
                             </li>
-                            <li class="nav-item service-item rounded"><a class="nav-link" href="/prizes?page=1"><i class="bi bi-award-fill px-2"></i></i> Nobel <script>document.write(new Date().getFullYear()-1)</script></a></li>
-                            <li class="nav-item service-item rounded"><a class="nav-link" href="/about#scroll-target"><i class="bi bi-info-square px-2"></i> Saiba Mais</a></li>
-                            <li class="nav-item service-item rounded"><a class="nav-link" href="/contact#contact"><i class="bi bi-newspaper px-2"></i> Contato</a></li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item service-item rounded"><a class="nav-link" href="/prizes?page=1"><i class="bi bi-award-fill px-2 h4"></i></i> <!--Nobel <script>document.write(new Date().getFullYear()-1)</script>--></a></li>
+                            <li class="nav-item service-item rounded"><a class="nav-link" href="/about#scroll-target"><i class="bi bi-info-square px-2 h4"></i> <!--Saiba Mais--></a></li>
+                            <li class="nav-item service-item rounded"><a class="nav-link" href="/contact#contact"><i class="bi bi-newspaper px-2 h4"></i> <!--Contato--></a></li>
+                            <!--<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog"
 href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-<i class="bi bi-code"></i> AENTECH</a>
+<i class="bi bi-code h4"></i> <!--AENTECH--></a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
                                        <li><a class="dropdown-item" href="https://aen.pythonanywhere.com">
-                                       Login</a></li>
+                                       Login</a></li>-->
                                        <!--<li><a class="dropdown-item" href="/register">
                                        Register</a></li>
                                        <li><a class="dropdown-item" href="/logout">
                                        Logout</a></li>-->
                                 </ul>
                             </li>
-{{#if results}}
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" id="year" type="number" placeholder="1912" min="1912"
-max="2023" aria-label="Search for..." aria-describedby="btnNavbarSearch"/>
-                    <button class="btn btn-primary" id="search" type="button">
-<i class="fas fa-search"></i></button>
-                </div>
-            </form>
-{{/if}}
+                            <!-- Form Search here -->
                         </ul>
                     </div>
                 </div>

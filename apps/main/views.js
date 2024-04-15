@@ -3,35 +3,46 @@ const router = express.Router();
 const hbs = require('hbs');
 const requireAuth = require('../auth/require-auth');
 const paginate = require('../../controllers/paginate');
-const { groupBy } = require('core-js/actual/array/group-by');
-
+/* Assign the { <property> } from the object to a local variable named <property>.
+   The destructuring assignment is particularly useful when dealing with complex objects or modules,
+   allowing you to extract specific properties directly into local variables
+   ex.: var ActionButton = require("sdk/ui/button/action").ActionButton;
+   ===> var { ActionButton } = require("sdk/ui/button/action"); */
 const { Deta } = require('deta');
 const deta = Deta();
 const Books = deta.Base("books");
 
 const items_by_category = require('../../controllers/request');
 
-
-router.get('/', (req, res) => {
-    res.render('main/home');
-});
-
-
-router.get('/contact', (req, res) => {
-    items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
+let toArray =  (data) => {
         const items = [];
         for (const [key, value] of Object.entries(data.categories)) {
             value.forEach((item) => {});
             items.push({category: key, value});
         };
-//const groupByAuthor = data.items.groupBy(item => item.author);
-        res.render('main/index', items);
+        return items;
+};
+
+router.get('/', (req, res) => {
+    items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
+        res.render('main/home', toArray(data));
+    });
+});
+
+
+router.get('/contact', (req, res) => {
+    items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
+        res.render('main/index', toArray(data));
     });
 });
 
 
 router.get('/ch5m3d', (req, res) => {
     res.render('main/ch5m3d');
+});
+
+router.get('/chemdoodle', (req, res) => {
+    res.render('main/chemdoodle');
 });
 
 
@@ -70,7 +81,7 @@ router.get('/books/:key?', (req, res) => {
 });
 
 
-router.get('/posts/:key', (req, res) => {
+router.get('/books_api/:key', (req, res) => {
     const book_key = req.params.key;
     Books.get(book_key).then((data) => {
         res.send(data);

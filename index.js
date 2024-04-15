@@ -20,6 +20,12 @@ hbs.registerHelper('trimString', function(passedString) {
     return new hbs.SafeString(theString)
 });
 
+hbs.registerHelper('for', function(from, to, incr, block) {
+    var accum = '';
+    for(var i = from; i < to; i += incr)
+        accum += block.fn(i);
+    return accum;
+});
 
 // Setup view engine
 app.set('views', path.join(__dirname, 'views'));

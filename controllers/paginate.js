@@ -6,7 +6,7 @@ const db = deta.Base("books");
 const items_by_category = require('./request');
 
 
-let paginateDB =  function(view){
+let paginateDB =  (view) => {
     return (req, res) => {
     const response = db.fetch();
     response.then((data) => {
@@ -36,7 +36,7 @@ let paginateDB =  function(view){
     };
 }
 
-let paginateAPI = function(url, app, view){
+let paginateAPI = (url, app, view) => {
     return (req, res) => {
     items_by_category(url, (error, data) => {
         const page = parseInt(req.query.page);
