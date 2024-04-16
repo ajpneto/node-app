@@ -98,7 +98,11 @@
                 <main class="container">
                    {{{ body }}}
                    <!-- Back to Top -->
+{{#if results}}
                    <button onclick="topFunction()" id="back-to-top" class="btn btn-lg btn-transparent btn-lg-square"><img src="/img/back-to-top.png" width="40"></button>
+{{else}}
+                   <a id="back-to-top" class="btn btn-lg btn-transparent btn-lg-square" data-bs-toggle="modal" data-bs-target="#modal3"><img src="/img/back-to-top.png" width="40"></a>
+{{/if}}
                 </main>
                    {{>footer}}
             </div>

@@ -6,7 +6,7 @@
             <h1 class="fw-bolder mb-1">{{title}}</h1>
             <!-- Post meta content-->
             <div class="text-muted fst-italic mb-2">Atualizado em {{publish_date}}</div>
-            <div id="TOC"><b>Sumário</b></div>
+            <!--<div id="TOC"><b>Índice</b></div>-->
                <!-- Post categories-->
                {{!-- for cat in top_cats --}}
                <div class="badge bg-secondary text-decoration-none link-light">{{!--cat[0].title--}}</div>
@@ -23,5 +23,5 @@
 </div>
 
                 <div class="content" style="text-align:justify">
-                    {{{content}}}
+                    {{{content}}}{{>modal3}}
                 </div><br><hr>

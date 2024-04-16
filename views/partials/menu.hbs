@@ -4,7 +4,7 @@
             <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
                 {{#each this}}{{#if category}}
                 <li class="nav-item p-1">
-                    <a class="nav-link shadow {{#if @first}}active{{/if}} fs-5"
+                    <a class="{{category}} nav-link shadow fs-5"
                       id="pills-profile-tab" data-toggle="pill" href="#{{category}}" role="tab"
                       aria-controls="pills-profile" aria-selected="false">{{category}}
                     </a>
@@ -47,3 +47,19 @@
         </div>
         {{/each}}
     </div>
+
+<script>
+window.onload = function() {
+  var i = 0;
+  var category = ["Energia", "Química", "Teoria"];
+  setInterval(function() {
+    document.querySelector('.' + category[i]).click();
+    i++;
+    if (i >= category.length) {
+        i = 0;
+  }
+  }, 5000);
+};
+</script>
+
+

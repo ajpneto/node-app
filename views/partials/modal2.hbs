@@ -3,54 +3,40 @@
    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="title-modal">
-            <img src="/img/logo.png" width="70">
-            </h5>
+            <p class="h5 modal-title" id="title-modal">
+            <img class="rounded-circle mb-4 shadow" src="/img/logo.png" width="70"><spam class="badge bg-primary bg-gradient rounded-pill mb-2 text-white shadow">Material App</spam>
+            </p>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
-         <div class="modal-body fw-bold">
+         <div class="modal-body">
 
 
-    <div class="card">
-      <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-        <img class="img-fluid" />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title font-weight-bold">{{item.name}}</h5>
-        <ul class="list-unstyled list-inline mb-0">
-          <li class="list-inline-item me-0">
-            <i class="fas fa-star text-warning fa-xs"> </i>
-          </li>
-          <li class="list-inline-item me-0">
-            <i class="fas fa-star text-warning fa-xs"></i>
-          </li>
-          <li class="list-inline-item me-0">
-            <i class="fas fa-star text-warning fa-xs"></i>
-          </li>
-          <li class="list-inline-item me-0">
-            <i class="fas fa-star text-warning fa-xs"></i>
-          </li>
-          <li class="list-inline-item">
-            <i class="fas fa-star-half-alt text-warning fa-xs"></i>
-          </li>
-          <li class="list-inline-item">
-            <p class="text-muted" id="publish_date"></p>
-          </li>
-        </ul>
-        <p class="mb-2" id="title"></p>
-        <!--<p class="card-text" id="author"></p>-->
-        <hr class="my-4" />
-        <p class="lead" id="description"><strong></strong></p>
-      </div>
-    </div>
+                  <div class="card">
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                      <img class="img-fluid"/></a>
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title font-weight-bold" id="title"></h5>
+                      <ul class="list-unstyled list-inline mb-0">
+                      {{#for 0 5 1}}
+                      <li class="list-inline-item me-0">
+                         <i class="fas fa-star text-warning fa-xs"> </i>
+                      </li>
+                      {{/for}}
+                      <li class="list-inline-item">
+                         <i class="fas fa-star-half-alt text-warning fa-xs"></i>
+                      </li>
+                      <li class="list-inline-item">
+                          <p class="text-muted" id="publish_date">(5.5)</p>
+                      </li>
+                      </ul>
+                      <p class="card-text" id="description">{{description}}</p>
+                    </div>
+                  </div>
+                </div>
 
 
          </div><!--modal-body-->
-         <div class="modal-footer">
-            <a class="checkout btn btn-primary fw-bold">
-            Ler Mais <i class="fas fa-angle-right"></i>
-            </a>
-         </div><!--modal-footer-->
       </div> <!-- /modal-content -->
    </div> <!-- /modal-dialog -->
 </div> <!-- /modal -->
