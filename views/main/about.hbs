@@ -7,8 +7,8 @@
                         <div class="col-lg-8 col-xxl-6">
                             <div class="text-center my-5">
                                 <h1 class="fw-bolder mb-3">Nossa missão: tornar a informação acessível a todos.</h1>
-                                <p class="lead fw-normal text-muted mb-4">Acesse nosso conteúdo gratuitamente e apoie-nos apreciando um de nossos produtos ou serviços.</p>
-                                <a class="btn btn-primary btn-lg" href="/books/gj17uq00mlh0#TOC">CONHEÇA NOSSO PROJETO</a>
+                                <p id="demo" class="lead fw-normal text-muted mb-4"></p>
+                                <a class="btn btn-primary btn-lg wow zoomIn" data-wow-delay="0.1s" href="/books/gj17uq00mlh0#TOC">CONHEÇA NOSSO PROJETO</a>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
             <section class="py-5">
                 <div class="container px-3 my-3">
                     <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-2 mb-lg-0" src="/img/logo.png" width="200" alt="..." /></div>
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid mb-lg-0 rounded-circle mb-4 shadow" src="/img/logo.png" width="200" alt="..." /></div>
                         <div class="col-lg-6">
                             <h2 class="fw-bolder">Tudo em um só lugar!</h2>
                             <p class="lead fw-normal text-muted mb-0">
@@ -50,7 +50,7 @@
                     <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
                         <div class="col mb-5 mb-5 mb-xl-0">
                             <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://yt3.ggpht.com/a/AATXAJyiCGyYqObs4Q8Ls6lbP_YJP2h6aeWFPLH94w=s900-c-k-c0xffffffff-no-rj-mo" alt="..." />
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://pad.unifesp.br/images/Imagens/unifesp-Divulgao.jpg" alt="..." />
                                 <h5 class="fw-bolder">UNIFESP</h5>
                                 <div class="fst-italic text-muted">São José dos Campos - SP</div>
                             </div>
@@ -64,14 +64,14 @@
                         </div>
                         <div class="col mb-5 mb-5 mb-sm-0">
                             <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://th.bing.com/th/id/OIP.gqPdIJ4BHDsE6sUwsBcKBwAAAA?rs=1&pid=ImgDetMain" alt="..." />
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://estagioonline.com/wp-content/uploads/2018/03/USP.png" alt="..." />
                                 <h5 class="fw-bolder">USP</h5>
                                 <div class="fst-italic text-muted">São Carlos - SP</div>
                             </div>
                         </div>
                         <div class="col mb-5">
                             <div class="text-center">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://3.bp.blogspot.com/-JTJddp2kLgI/U8s0plMb3wI/AAAAAAAADPI/YJTLjFjK1is/s1600/ufabc.jpg" alt="..." />
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="https://dddrop.com.br/wp-content/uploads/2021/12/Logo-UFABC.png" alt="..." />
                                 <h5 class="fw-bolder">UFABC</h5>
                                 <div class="fst-italic text-muted">Santo André - SP</div>
                             </div>
@@ -80,3 +80,17 @@
                 </div>
             </section>
 </div>
+<script>
+var i = 0;
+var txt = 'Acesse nosso conteúdo gratuitamente e apoie-nos adquirindo um de nossos produtos ou serviços.';
+var speed = 50;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+typeWriter();
+</script>
