@@ -7,14 +7,14 @@
                             <a class="nav-link" id="/books_api/{{key}}"
                                data-bs-toggle="modal" data-bs-target="#modal2">
                       <div class="d-flex align-items-center">
-                            <img class="zoom flex-shrink-0 img-fluid rounded" src="{{image}}" alt="" style="width: 400px;">
-                      <div class="d-flex flex-column text-start ps-2"></a>
-                         <h6 class="d-flex justify-content-between fw-bold">
+                            <img class="zoom flex-shrink-0 img-fluid rounded d-none d-sm-block d-sm-none d-md-block" src="{{image}}" alt="" style="width: 400px;">
+                      <div class="d-flex flex-column text-start ps-2">
+                         <h5 class="d-flex justify-content-between fw-bold">
                             {{title}}
-                         </h6>
+                         </h5>
                          <small class="fst-italic">
                             <p>{{trimString description}}...</p>
-                         </small>
+                         </small></a>
                          <ul class="list-unstyled list-inline mb-0 border-bottom pb-2">
                             <li class="list-inline-item me-0">
                               <i class="fas fa-star text-warning fa-xs"> </i>

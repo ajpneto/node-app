@@ -170,13 +170,13 @@ function topFunction() {
     "use strict";
 
     // Sticky Navbar
-/*    $(window).scroll(function () {
-        if ($(this).scrollTop() > 45) {
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 250) {
             $('.navbar').addClass('sticky-top shadow-sm');
         } else {
             $('.navbar').removeClass('sticky-top shadow-sm');
         }
-    });*/
+    });
 
     // Dropdown on mouse hover
     const $dropdown = $(".dropdown");
