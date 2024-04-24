@@ -2,33 +2,8 @@
 style="background-image: url('/img/banner5.jpg')">
             <!-- Page Content-->
 <div hidden id="TOC"><b>Sumário</b></div>
-            <section class="py-1">
-                <div class="container px-1">
-                    {{#each results}}{{#if @first}}
-                    <div class="card border-0 shadow rounded-3 overflow-hidden">
-                        <div class="card-body p-0"
-style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/007.webp')">
-                            <div class="row gx-3">
-                                <div class="col-lg-6 col-xl-5 py-lg-5">
-                    <h1 class="fw-bold fs-2 mb-4 text-light px-5">Blog da Empresa</h1>
-                                    <div class="p-4 p-md-5">
-                                        <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
-                                        <div class="h2 fw-bolder text-light">{{title}}</div>
-                                        <p class="text-light">Estamos com o site em manutenção e alguns recursos podem estar indisponíveis ou instáveis no momento.</p>
-                                        <a class="stretched-link nav-link text-light" href="books/2lq6znbrsnjy">
-                                            Mais informação
-                                            <i class="bi bi-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>{{/if}}
-                    {{/each}}
-                </div>
-            </section>
             <!-- Blog preview section-->
-            <section class="py-0">
+            <section class="py-5">
                 <div class="container px-1">
                     <!--<h2 class="fw-bolder fs-3 mb-4 text-center text-secondary">News</h2>-->
                     <div class="row gx-1">
@@ -72,7 +47,7 @@ style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/007.webp')
                            {{#if next}}<li class="page-item"><a class="page-link fw-bold" href="/blog?page={{next.page}}">Próxima</a></li>{{/if}}
                            </ul>
                         </a>
-                    </div><hr>
+                    </div>
                 </div>
             </section>
         </main>

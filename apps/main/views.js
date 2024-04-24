@@ -30,9 +30,16 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/contact', (req, res) => {
-    items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
-        res.render('main/index', toArray(data));
+router.get('/articles', (req, res) => {
+    items_by_category('https://aen.pythonanywhere.com/articles', (error, data) => {
+        res.render('main/magazine', toArray(data));
+    });
+});
+
+router.get('/article/:id?', (req, res) => {
+    const article_id = req.params.id - 1;
+    items_by_category('https://aen.pythonanywhere.com/articles', (error, data) => {
+        res.render('main/article', toArray(data)[article_id]);
     });
 });
 
@@ -57,6 +64,10 @@ router.get('/about', (req, res) => {
     res.render('main/about');
 });
 
+router.get('/contact', (req, res) => {
+        res.render('main/index');
+});
+
 router.get('/laureates', (req, res) => {
         res.render('main/laureates');
 });
@@ -76,7 +87,7 @@ router.get('/books', paginate.paginateDB('main/index'), (req, res) => {
 router.get('/books/:key?', (req, res) => {
     const book_key = req.params.key;
     Books.get(book_key).then((data) => {
-        res.render('main/article', data);
+        res.render('main/book', data);
     });
 });
 

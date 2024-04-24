@@ -1,0 +1,65 @@
+<div class="container py-4 text-center wow fadeIn">
+    <div class="row justify-content-center">
+        <div class="col-sm-7 col-md-4 mb-5">
+            <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
+                {{#each this}}{{#if category}}
+                <li class="nav-item p-1">
+                    <a class="{{category}} nav-link shadow fs-5"
+                      id="pills-profile-tab" data-toggle="pill" href="#{{category}}" role="tab"
+                      aria-controls="pills-profile" aria-selected="false">{{category}}
+                    </a>
+                {{/if}}{{/each}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-content" id="pills-tabContent">
+        {{#each this}}
+        <div class="tab-pane fade {{#if @first}}show active{{/if}}" id="{{category}}" role="tabpanel" aria-labelledby="{{#if @first}}pills-home-tab{{else}}pills-profile-tab{{/if}}">
+            <div class="row">
+                {{#each value}}
+                <div class="col-md-3">
+                  <!--<div class="card">-->
+                    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                      <a href="{{url}}"><img class="img-fluid rounded" src="{{image}}"/></a>
+                    </div>
+                    <div class="card-body">
+                      <p class="card-title text-muted">{{name}}</p>
+                      <ul class="list-unstyled list-inline mb-0">
+                      {{#for 0 stars 1}}
+                      <li class="list-inline-item me-0">
+                         <i class="fas fa-star text-warning fa-xs"> </i>
+                      </li>
+                      {{/for}}
+                      <li class="list-inline-item">
+                         <i class="fas fa-star-half-alt text-warning fa-xs"></i>
+                      </li>
+                      <li class="list-inline-item">
+                          <p class="text-muted" id="publish_date">({{stars}}.5)</p>
+                      </li>
+                      </ul>
+                      <!--<p class="card-text" id="name">{{description}}</p>-->
+                    </div>
+                  <!--</div>-->
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+<hr>
+<script>
+window.onload = function() {
+  var i = 0;
+  var category = ["Energia", "Química", "Teoria"];
+  setInterval(function() {
+    document.querySelector('.' + category[i]).click();
+    i++;
+    if (i >= category.length) {
+        i = 0;
+  }
+  }, 7000);
+};
+</script>
+
+

@@ -1,3 +1,4 @@
+<section class="magazine">
 <div class="container py-5 text-center wow fadeIn">
     <div class="row justify-content-center">
         <div class="col-sm-7 col-md-4 mb-5">
@@ -21,10 +22,10 @@
                 <div class="col-md-3">
                   <!--<div class="card">-->
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                      <a href="{{url}}"><img class="img-fluid rounded" src="{{image}}"/></a>
+                      <a href="article/{{id}}"><img class="img-fluid rounded" src="{{image}}"/></a>
                     </div>
                     <div class="card-body">
-                      <p class="card-title font-weight-bold">{{name}}</p>
+                      <p class="card-title text-muted">{{title}}</p>
                       <ul class="list-unstyled list-inline mb-0">
                       {{#for 0 stars 1}}
                       <li class="list-inline-item me-0">
@@ -38,7 +39,7 @@
                           <p class="text-muted" id="publish_date">({{stars}}.5)</p>
                       </li>
                       </ul>
-                      <!--<p class="card-text" id="name">{{description}}</p>-->
+                      <!--<p class="card-text" id="name">{{content}}</p>-->
                     </div>
                   <!--</div>-->
                 </div>
@@ -47,7 +48,8 @@
         </div>
         {{/each}}
     </div>
-
+</div>
+</section>
 <script>
 window.onload = function() {
   var i = 0;

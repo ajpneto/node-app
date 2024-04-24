@@ -47,6 +47,11 @@
            <!-- JQuery -->
            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <style>
+           @import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
+           .navbar, .magazine, footer {
+           font-family: "Luckiest Guy", cursive;
+           }
+
            #TOC {
            text-align:left;
            }
@@ -94,8 +99,8 @@
     <body>
             <div id="layoutSidenav_content">
                    {{>navbar}}
-                   {{#unless results}}{{>header}}{{/unless}}
                 <main class="container">
+                   <div class="d-block d-sm-none p-5"></div>
                    {{{ body }}}
                    <!-- Back to Top -->
                    <button onclick="topFunction()" id="back-to-top" class="btn btn-lg btn-transparent btn-lg-square" data-bs-toggle="modal" data-bs-target="#modal3"><img src="/img/back-to-top.png" width="40"></button>
