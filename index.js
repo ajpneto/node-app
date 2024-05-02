@@ -16,7 +16,7 @@ hbs.registerHelper('copyrightYear', function() {
 });
 
 hbs.registerHelper('trimString', function(passedString) {
-    var theString = passedString.substring(0,100);
+    var theString = passedString.substring(0,200);
     return new hbs.SafeString(theString)
 });
 

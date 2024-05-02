@@ -1,7 +1,10 @@
-<section class="magazine">
+{{>style1}}
+<div hidden id="TOC"><b>Sumário</b></div>
+<section class="bg-light">
 <div class="container py-5 text-center wow fadeIn">
+<h1 class="d-none d-md-block d-lg-block">Química</h1>
     <div class="row justify-content-center">
-        <div class="col-sm-7 col-md-4 mb-5">
+        <div class="col-sm-12 col-md-12 mb-12">
             <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
                 {{#each this}}{{#if category}}
                 <li class="nav-item p-1">
@@ -22,23 +25,10 @@
                 <div class="col-md-3">
                   <!--<div class="card">-->
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                      <a href="article/{{id}}"><img class="img-fluid rounded" src="{{image}}"/></a>
+                      <a href="/book/{{key}}"><img class="zoom img-fluid rounded" src="{{image}}"/></a>
                     </div>
                     <div class="card-body">
                       <p class="card-title text-muted">{{title}}</p>
-                      <ul class="list-unstyled list-inline mb-0">
-                      {{#for 0 stars 1}}
-                      <li class="list-inline-item me-0">
-                         <i class="fas fa-star text-warning fa-xs"> </i>
-                      </li>
-                      {{/for}}
-                      <li class="list-inline-item">
-                         <i class="fas fa-star-half-alt text-warning fa-xs"></i>
-                      </li>
-                      <li class="list-inline-item">
-                          <p class="text-muted" id="publish_date">({{stars}}.5)</p>
-                      </li>
-                      </ul>
                       <!--<p class="card-text" id="name">{{content}}</p>-->
                     </div>
                   <!--</div>-->
@@ -50,18 +40,3 @@
     </div>
 </div>
 </section>
-<script>
-window.onload = function() {
-  var i = 0;
-  var category = ["Energia", "Química", "Teoria"];
-  setInterval(function() {
-    document.querySelector('.' + category[i]).click();
-    i++;
-    if (i >= category.length) {
-        i = 0;
-  }
-  }, 7000);
-};
-</script>
-
-

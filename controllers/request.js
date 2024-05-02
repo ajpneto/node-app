@@ -19,7 +19,7 @@ const items_by_category = (address, callback) => {
             callback('Unable to find location. Try another search.', undefined)
         } else {
             callback(undefined, {
-                categories: response.body
+                category: response.body
             })
         }
     })

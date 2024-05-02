@@ -12,35 +12,78 @@ const { Deta } = require('deta');
 const deta = Deta();
 const Books = deta.Base("books");
 
-const items_by_category = require('../../controllers/request');
+const request = require('../../controllers/request');
+const booksDB = require('../../controllers/books');
+const booksDB1 = require('../../controllers/books1');
+
 
 let toArray =  (data) => {
-        const items = [];
-        for (const [key, value] of Object.entries(data.categories)) {
-            value.forEach((item) => {});
-            items.push({category: key, value});
-        };
-        return items;
+    const items = [];
+    for (const [key, value] of Object.entries(data.category)) {
+        value.forEach((item) => {});
+        items.push({category: key, value});
+    };
+    return items;
 };
 
+router.get('/all', (req, res) => {
+        const response = Books.fetch();
+        response.then((data) => {
+            res.send(data);
+        });
+});
+
 router.get('/', (req, res) => {
-    items_by_category('https://aen.pythonanywhere.com/products', (error, data) => {
+    request('https://aen.pythonanywhere.com/products', (error, data) => {
         res.render('main/home', toArray(data));
     });
 });
 
-
-router.get('/articles', (req, res) => {
-    items_by_category('https://aen.pythonanywhere.com/articles', (error, data) => {
-        res.render('main/magazine', toArray(data));
+router.get('/material', (req, res) => {
+    const response = Books.fetch();
+    response.then((data) => {
+        const result = data.items.reduce((x, y) => {
+            (x[y.division] = x[y.division] || []).push(y);
+            return x;
+        }, {});
+        const cats = {category: result};
+        res.render('main/magazine', toArray(cats));
     });
 });
 
-router.get('/article/:id?', (req, res) => {
-    const article_id = req.params.id - 1;
-    items_by_category('https://aen.pythonanywhere.com/articles', (error, data) => {
-        res.render('main/article', toArray(data)[article_id]);
+/*router.get('/book/:key?', (req, res) => {
+    const book_key = req.params.key; //-1
+const booksData = booksDB1.getData();
+const book = booksData.items.find((book) => book.key === book_key);
+res.render('main/article', book)
+});*/
+
+// Deta //
+router.get('/books', paginate.paginateDB('main/bookscat'), (req, res) => {
+});
+
+router.get('/book/:key?', (req, res) => {
+    const book_key = req.params.key;
+    Books.get(book_key).then((data) => {
+        res.render('main/book', data);
     });
+});
+
+
+/*router.get('/book_api/:key', (req, res) => {
+    const book_key = req.params.key;
+    Books.get(book_key).then((data) => {
+        res.send(data);
+    });
+});*/
+
+
+router.get('/about', (req, res) => {
+    res.render('main/about');
+});
+
+router.get('/contact', (req, res) => {
+        res.render('main/index');
 });
 
 
@@ -54,57 +97,11 @@ router.get('/chemdoodle', (req, res) => {
 
 
 router.get('/reports', (req, res) => {
-    items_by_category('https://aen.pythonanywhere.com/reports', (error, data) => {
+    request('https://aen.pythonanywhere.com/reports', (error, data) => {
         res.send(data);
     });
 });
 
-
-router.get('/about', (req, res) => {
-    res.render('main/about');
-});
-
-router.get('/contact', (req, res) => {
-        res.render('main/index');
-});
-
-router.get('/laureates', (req, res) => {
-        res.render('main/laureates');
-});
-
-router.get('/blog',
-paginate.paginateAPI('https://servicodados.ibge.gov.br/api/v3/noticias/', 'main/','items'), (req, res) => {
-});
-
-router.get('/prizes',
-paginate.paginateAPI('https://api.nobelprize.org/v1/prize.json', 'main/','prizes'), (req, res) => {
-});
-
-
-router.get('/books', paginate.paginateDB('main/index'), (req, res) => {
-});
-
-router.get('/books/:key?', (req, res) => {
-    const book_key = req.params.key;
-    Books.get(book_key).then((data) => {
-        res.render('main/book', data);
-    });
-});
-
-
-router.get('/books_api/:key', (req, res) => {
-    const book_key = req.params.key;
-    Books.get(book_key).then((data) => {
-        res.send(data);
-    });
-});
-
-router.get('/all', (req, res) => {
-        const response = Books.fetch();
-        response.then((data) => {
-            res.send(data);
-        });
-});
 
 router.get('/add', requireAuth, (req, res) => {
         const response = Books.fetch();
@@ -115,7 +112,7 @@ router.get('/add', requireAuth, (req, res) => {
 router.post('/add', requireAuth, (req, res) => {
         let today = new Date().toLocaleDateString('pt-BR')
         const data = {
-              author: req.body.author,
+              category: req.body.category,
               title: req.body.title,
               description: req.body.description,
               content: req.body.content,

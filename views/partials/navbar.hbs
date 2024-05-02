@@ -1,34 +1,43 @@
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-info rounded shadow mb-2" style="background-color: #8c6239">
-                <div class="container">
-{{>carousel}}
-                    <!--<a class="navbar-brand fw-bold fs-6" href="/"><img class="img-fluid px-0 rounded-circle mb-4 shadow" src="/img/logo.png" width="70">
-                     <spam class="badge bg-primary bg-gradient rounded-pill mb-2 text-white shadow">AppMaterial<sup>&copy;</sup></spam>
+<!-- Navigation-->
+<nav id="navbar" class="navbar sticky-top shadow-sm navbar-expand-lg navbar-light bg-light mb-2">
+   <div class="container">
+       {{!-->carousel--}}
+       <a class="navbar-brand d-none d-md-block fs-6" href="/">
+         <img class="figure-img img-fluid" src="/img/aen.png" width="70">
+       </a>
+       <button class="navbar-toggler shadow text-light" type="button"
+        data-bs-toggle="modal" data-bs-target="#modal1" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+       </button> 
+       <spam class="shadow rounded">{{!-->navapp--}}</spam>
+    <div class="row d-none d-md-block d-lg-block">
+        <div class="col-sm-12 col-md-12">
+            <ul class="nav nav-justified fw-bold rounded shadow" role="tablist">
+                <li class="nav-item service-item">
+                    <a class="nav-link" href="/material">Material
                     </a>
-                    <button class="navbar-toggler text-white" type="button" data-bs-toggle="modal" data-bs-target="#modal1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>-->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            </li>
-                            <li class="nav-item"><a class="nav-link text-white" href="/books?page=1">e-Books</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="/articles"> Magazine</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="/about">Sobre</a></li>
-                            <li class="nav-item"><a class="nav-link text-white" href="/contact#contact">Contato</a></li>
-                            <!--<li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog"
-href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-<i class="bi bi-code h4"></i> <!--AENTECH--></a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                                       <li><a class="dropdown-item" href="https://aen.pythonanywhere.com">
-                                       Login</a></li>-->
-                                       <!--<li><a class="dropdown-item" href="/register">
-                                       Register</a></li>
-                                       <li><a class="dropdown-item" href="/logout">
-                                       Logout</a></li>-->
-                                </ul>
-                            </li>
+                </li>
+                <li class="nav-item service-item">
+                    <a class="nav-link" href="/ch5m3d#ch5m3d">CH<sub>5</sub>M<sub>3D</sub>
+                    </a>
+                </li>
+                <li class="nav-item service-item">
+                    <a class="nav-link" href="/add">Arquivos
+                    </a>
+                </li>
+                <li class="nav-item service-item">
+                    <a class="nav-link" href="/about">Sobre
+                    </a>
+                </li>
+                <li class="nav-item service-item">
+                    <a class="nav-link" href="/contact">Contato
+                    </a>
+                </li>
                             <!-- Form Search here -->
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            </ul>
+        </div>
+    </div>
+
+   </div>
+</nav>
 {{>modal1}}

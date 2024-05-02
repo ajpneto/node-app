@@ -1,22 +1,9 @@
 <div hidden id="TOC"><b>Sumário</b></div>
 <div class="container mb-5 magazine" style="text-align: justify">
-      <!-- Jumbotron -->
-      <div class="bg-image p-5 text-center shadow rounded-3 mb-5 text-white"
-         style="background-image: url('https://images.unsplash.com/photo-1712927446840-f4ab04d9049e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-
-         <div class="mask rounded container position-relative wow zoomIn" data-wow-delay="0.1s" style="background-color: rgba(0, 0, 0, 0.3);">
-            <div style="padding:20px">
-               {{>style1}}
-               <h1 class="mb-3 h2">Tecnologia & Informação</h1>
-               <p class="h5">A combinação ideal para transformar a operação de conectar pessoas ao seu empreendimento.</p>
-            </div>
-         </div>
-      </div>
-      <!-- Jumbotron -->
+{{>jumbotron}}
       <div class="row">
-         {{#each value}}
-         <div class="text-muted fst-italic mb-0">Atualizado em {{url}}</div>
+         {{!--#each value--}}
          <p>{{{content}}}</p>
-         {{/each}}
+         {{!--/each--}}
       </div>
 </div>

@@ -1,13 +1,19 @@
-<body onload="initialize()">
-   <div class="container px-0 magazine">
+<body onload="initialize()" class="bg-info">
+   <div class="container px-0">
       <div hidden id="TOC"><b>Sumário</b></div>
       <p class="QCHeader py-5">
-         <a class="nav-link" href="/books/y7xplk8f5r5t">CH<sub>5</sub>M<sub>3D</sub> Documentation</a>
+         <a class="nav-link" href="/book/y7xplk8f5r5t">CH<sub>5</sub>M<sub>3D</sub> Documentation</a>
       </p>
       <div class="row">
          <div class="col-md-6" id="ch5m3d">
             <p class="clear">&nbsp;</p>
                <div class="card-body drawWin"><canvas id="molcanvas" width="350" height="350"></canvas></div>
+               <div class="input-group">
+                  <p class="fleft"><strong>Load .xyz file:</strong><br />
+                  <input type="file" class="form-control" id="molfile"
+                    title="Browse to load a file located on your computer." />
+               </div>
+            </p>
          </div>
          <div class="col-md-6 py-5">
             <p>
@@ -41,11 +47,6 @@
                   <input type='button' class="Button" id="rotateX" onclick="RotateMolecule('x')" value="Rotate X" />
                   <input type='button' class="Button" id="rotateY" onclick="RotateMolecule('y')" value="Rotate Y" />
                   <input type='button' class="Button" id="rotateZ" onclick="RotateMolecule('z')" value="Rotate Z" />
-               </p>
-               <p class="fleft"><strong>Load .xyz file:</strong><br />
-               <div class="input-group">
-                  <input type="file" class="form-control" id="molfile" title="Browse to load a file located on your computer." />
-               </div>
                </p>
             </div>
             <div id="drawDiv" class="drawDiv">
@@ -82,9 +83,9 @@
          <div class="col-md-4">
             <p><strong>Information</strong></br><textarea class="form-control" id="information" rows="11"></textarea></p>
          </div>
-         <div class="col-md-8 zoom">
-            {{>periodictable}}
+         <div class="col-md-8">
          </div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#modal4">show periodic table</button>
       </div>
       <div class="Footer" id="Footer">
          The chem3d.js library copyright © 2013 by Clarke Earley<br />
@@ -92,4 +93,5 @@
          <a href="http://www.gnu.org/licenses/gpl.html">GNU General Public License</a>.
       </div>
    </div>
+{{>modal4}}
 </body>

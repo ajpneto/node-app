@@ -1,21 +1,25 @@
-         <!--section-->
+<div hidden id="TOC"><b>Sumário</b></div>
+   <section class="py-0">
+       <div class="container px-0">
+           <!--<h2 class="fw-bolder fs-5 mb-4">Destaques</h2>-->
+           {{#unless results}}{{!--featured--}}{{/unless}}
+
          <div class="container px-0 menu"><br>
                <div class="row g-4">
                    {{#each results}}
-                   <div class="col-lg-6">
+                   <div class="col-lg-6 zoom mb-3">
                             <span class="data">
-                            <a class="nav-link" id="/books_api/{{key}}"
-                               data-bs-toggle="modal" data-bs-target="#modal2">
-                      <div class="d-flex align-items-center">
-                            <img class="zoom flex-shrink-0 img-fluid rounded d-none d-sm-block d-sm-none d-md-block" src="{{image}}" alt="" style="width: 400px;">
+                            <a class="nav-link" href="/book/{{key}}">
+                      <div class="d-flex align-items-center rounded p-1 shadow">
+                            <img class="flex-shrink-0 img-fluid rounded" src="{{image}}" alt="" style="width: 400px;">
                       <div class="d-flex flex-column text-start ps-2">
                          <h5 class="d-flex justify-content-between fw-bold">
                             {{title}}
                          </h5>
-                         <small class="fst-italic">
+                         <small class="fst-italic text-muted">
                             <p>{{trimString description}}...</p>
                          </small></a>
-                         <ul class="list-unstyled list-inline mb-0 border-bottom pb-2">
+                         <ul class="list-unstyled mb-0 list-inline">
                             <li class="list-inline-item me-0">
                               <i class="fas fa-star text-warning fa-xs"> </i>
                             </li>
@@ -41,8 +45,14 @@
                    {{/each}}
                </div>
          </div>
-         <!-- section -->
-
+           <div class="text-end mb-5 mb-xl-0 py-0">
+               <a class="text-decoration-none" href="#!">
+                   {{>paginate}}
+               </a>
+           </div>
+       </div>
+   </section>
+{{>modal2}}
 
 <script>
 
@@ -60,7 +70,7 @@ $('.data').on('click', 'a', function() {
         $('#title').html(data.title);
         $('#description').html(data.description);
         $('.card img').attr('src', data.image);
-        $('#modal2 a').attr('href', '/books/' + data.key + '#TOC');
+        $('#modal2 a').attr('href', '/book/' + data.key);
 
     });
 

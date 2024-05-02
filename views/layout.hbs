@@ -40,16 +40,16 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <!-- Fonts-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<!--        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>-->
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
            <!-- JQuery -->
            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <style>
            @import url("https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap");
-           .navbar, .magazine, footer {
-           font-family: "Luckiest Guy", cursive;
+           //.navbar, .magazine, footer {
+           //font-family: "Luckiest Guy", cursive;
            }
 
            #TOC {
@@ -67,15 +67,18 @@
            .TOCSectNum:after { content: " – "; }
            .TOCSectNum { display: none }
             //#loading { outline: none; border: none; background: transparent }
-.zoom {
-  transition: transform .2s; /* Animation */
-  margin: 0 auto;
-}
 
-.zoom:hover {
-  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
+           .zoom {
+             transition: transform .2s; /* Animation */
+             margin: 0 auto;
+           }
+
+           .zoom:hover {
+             transform: scale(1.1);
+           }
         </style>
+        <!-- Three.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
         <!-- bokeh scripts -->
         <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.min.js"></script>
         <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.2.2.min.js"></script>
@@ -97,15 +100,15 @@
   gtag('config', 'G-NCGCXV54CT');
 </script>
     <body>
-            <div id="layoutSidenav_content">
+            <div>
                    {{>navbar}}
                 <main class="container">
-                   <div class="d-block d-sm-none p-5"></div>
+                   <!--<div class="d-block d-sm-none p-5"></div>-->
                    {{{ body }}}
                    <!-- Back to Top -->
                    <button onclick="topFunction()" id="back-to-top" class="btn btn-lg btn-transparent btn-lg-square" data-bs-toggle="modal" data-bs-target="#modal3"><img src="/img/back-to-top.png" width="40"></button>
                 </main>
-                   {{>footer}}
+                   {{!-->footer--}}
             </div>
 
 
