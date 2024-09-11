@@ -1,70 +1,56 @@
-const express = require("express");
-const hbs = require('hbs');
-const createError = require('http-errors');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const path = require('path');
-const port = process.env.PORT || 8080;
-
-const app = express();
-
-//A Handlebars custom helper function
-hbs.registerHelper('copyrightYear', function() {
-  var year = new Date().getFullYear();
-
-  return new hbs.SafeString(year);
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const http_1 = require("http");
+const logger_1 = require("./src/config/logger");
+const env_config_1 = require("./src/config/env.config");
+const loader_1 = require("./src/loader");
+const exitHandler = (server) => {
+    if (server) {
+        server.close(() => __awaiter(void 0, void 0, void 0, function* () {
+            logger_1.logger.info('Server closed');
+            process.exit(1);
+        }));
+    }
+    else {
+        process.exit(1);
+    }
+};
+const unExpectedErrorHandler = (server) => {
+    return function (error) {
+        logger_1.logger.error(error);
+        exitHandler(server);
+    };
+};
+// Start the server and listen for incoming requests on the specified port
+const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
+    const app = (0, express_1.default)();
+    yield (0, loader_1.bootstrap)(app);
+    const httpServer = (0, http_1.createServer)(app);
+    const port = (0, env_config_1.validateEnv)().port;
+    const server = httpServer.listen(port, () => {
+        logger_1.logger.info(`Server listening on port ${port}`);
+    });
+    process.on('uncaughtException', unExpectedErrorHandler(server));
+    process.on('unhandledRejection', unExpectedErrorHandler(server));
+    process.on('SIGTERM', () => {
+        logger_1.logger.info('SIGTERM received');
+        if (server) {
+            server.close();
+        }
+    });
 });
-
-hbs.registerHelper('trimString', function(passedString) {
-    var theString = passedString.substring(0,200);
-    return new hbs.SafeString(theString)
-});
-
-hbs.registerHelper('for', function(from, to, incr, block) {
-    var accum = '';
-    for(var i = from; i < to; i += incr)
-        accum += block.fn(i);
-    return accum;
-});
-
-// Setup view engine
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-hbs.registerPartials(path.join(__dirname, 'views/partials/'));
-
-// Setup static files folder
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// load own modules
-const logger = require('./controllers/logger');
-//const requireAuth = require('./apps/auth/require-auth')
-app.use(logger);
-app.use(cookieParser());
-//app.use(requireAuth);
-
-const auth = require('./apps/auth/views');
-const main = require('./apps/main/views');
-//middleware
-// Register with existing application
-app.use('', auth);
-app.use('', main);
-
-// 404
-app.use((req, res, next) => {
-    next(createError(404));
-});
-
-// error handler
-app.use((err, req, res, next) => {
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    res.status(err.status || 500);
-    res.render('error');
-});
-
-
-app.listen(port, () => {
-    console.log(`App listening on port ${port}!`);
-});
+startServer();
+//# sourceMappingURL=index.js.map
