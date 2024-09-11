@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Um site de notícias e informações científicas" />
+        <meta name="author" content="AJPN" />
+
+
+        <!-- og properties -->
+        <meta property="og:title" content="{{#if title}}{{title}}{{else}}AEN Tecnologia & Informação{{/if}}" />
+        <meta property="og:description" content="Notícias e Informações Tecnocientíficas">
+        <meta property="og:url" content="https://aentech-1-j8918806.deta.app/" />
+        <meta property="og:image" content="https://aentech-1-j8918806.deta.app/img/logomarca.jpg" />
+        <meta property="og:type" content="website" />
+        <title>{{#if title}}{{title}}{{else}}AEN | Tecnologia & Informação{{/if}}</title>
+
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="/img/image.png">
+        <!-- Styles-->
+        <link href="/css/styles.css" rel="stylesheet" />
+        <!-- Personalized Styles-->
+        <link href="/css/main.css" rel="stylesheet" />
+        <!-- Animate-->
+        <link rel="stylesheet" href="/vendors/animate/animate.css" rel="stylesheet" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+           <!-- JQuery -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- CH5M3D -->
+        <link rel="stylesheet" type="text/css" href="/vendors/css/ch5m3d.css" />
+        <script type="text/javascript" src="/vendors/js/ch5m3d.js"></script>
+        <style>
+           @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+           body {
+           font-family: "Montserrat", sans-serif;
+           }
+
+           #TOC {
+           text-align:left;
+           }
+           #TOC { margin: 5px; padding: 5px; font-size: 18pt}
+           .TOCEntry a { text-decoration: none; }
+           .TOCLevel1 {display: none}
+           .TOCLevel2 { font-size: 12pt; font-weight: bold;
+           }
+           .TOCLevel3 {font-size: 11pt; margin-left: .3in;
+           }
+           .TOCLevel4 {font-size: 10pt; margin-left: .5in;
+           }
+           .TOCSectNum:after { content: " – "; }
+           .TOCSectNum { display: none }
+            //#loading { outline: none; border: none; background: transparent }
+
+           .zoom {
+             transition: transform .2s; /* Animation */
+             margin: 0 auto;
+           }
+
+           .zoom:hover {
+             transform: scale(1.1);
+           }
+        </style>
+
+    </head>
+<!-- Google tag (gtag.js) -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-NCGCXV54CT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NCGCXV54CT');
+</script>-->
+    <body>
+            <div>
+                   {{>navbar}}
+                <main class="container">
+                   <!--<div class="d-block d-sm-none p-5"></div>-->
+                   {{{ body }}}
+                   <!-- Back to Top -->
+                   <button onclick="topFunction()" id="back-to-top" class="btn btn-lg btn-transparent btn-lg-square zoom" data-bs-toggle="modal" data-bs-target="#modal3">
+<i class="h1 bi bi-arrow-up-circle-fill"></i></button>
+                </main>
+                   {{>footer}}
+            </div>
+
+           <!-- Bootstrap core JS-->
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+           <!-- Main -->
+           <script src="/js/scripts.js"></script>
+           <script src="/js/main.js"></script>
+           <!-- bootstrap_bundle -->
+           <script src="/vendors/js/bootstrap.bundle.js"></script>
+
+           <!-- wow.js -->
+           <script src="/vendors/wow/wow.js"></script>
+           <!-- purecounte_vanilla.js -->
+           <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+           <script>
+              new WOW().init();
+              new PureCounter();
+           </script>
+           <!-- mathjax -->
+           <script type="text/x-mathjax-config">
+             MathJax.Hub.Config({
+               extensions: ["tex2jax.js"],
+               jax: ["input/TeX", "output/HTML-CSS"],
+               tex2jax: {
+                 inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                 displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                 processEscapes: true
+               },
+               "HTML-CSS": { availableFonts: ["TeX"] }
+             });
+           </script>
+           <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </body>
+</html>
