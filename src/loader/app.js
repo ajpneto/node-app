@@ -15,7 +15,7 @@ const corsOption_1 = require("../config/corsOption");
 const hbs_1 = __importDefault(require("hbs"));
 const path_1 = __importDefault(require("path"));
 (0, dotenv_1.config)();
-hbs_1.default.registerPartials(path_1.default.join('/home/ajpneto/node-projects/type-express/src/', 'views/partials/'));
+hbs_1.default.registerPartials(path_1.default.join('./src/', 'views/partials/'));
 //A Handlebars custom helper function
 hbs_1.default.registerHelper('copyrightYear', function () {
     var year = new Date().getFullYear();
@@ -49,8 +49,8 @@ const bootstrapExpress = (app) => {
     app.use((0, cookie_parser_1.default)());
     app.use(body_parser_1.default.urlencoded({ extended: true, limit: "30mb" }));
     app.set('view engine', 'hbs');
-    app.set('views', path_1.default.join('/home/ajpneto/node-projects/type-express/src/', 'views'));
-    app.use(express_1.default.static(path_1.default.join('/home/ajpneto/node-projects/type-express/src/', 'public')));
+    app.set('views', path_1.default.join('./src/', 'views'));
+    app.use(express_1.default.static(path_1.default.join('./src/', 'public')));
     app.use("/", index_1.default);
     app.use(index_middleware_1.notFoundMiddleware);
     app.use(index_middleware_1.errorHandlerMiddleware);

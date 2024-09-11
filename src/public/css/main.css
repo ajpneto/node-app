@@ -1,0 +1,224 @@
+:root {
+    --bs-info: #0dcaf0;
+    --bs-light: #f8f9fa;
+    --light: #f8f9fa;
+    --dark: #000;
+    --hedgehog: #6610f2;
+}
+
+           html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+           #back-to-top {
+               position: fixed;
+               display: none;
+               right: 45px;
+               bottom: 45px;
+               z-index: 99;
+           }
+  .container:hover & {
+    transform: scale(1.4);
+  }
+}
+
+/*** Service ***/
+.service-item {
+    box-shadow: 0 0 45px rgba(0, 0, 0, .08);
+    transition: .5s;
+}
+
+.service-item:hover {
+    background: var(--bs-light);
+}
+
+.service-item * {
+    transition: .5s;
+}
+
+.service-item:hover * {
+    color: var(--bs-dark) !important;
+}
+
+
+body {
+//        background-color: #f5f7fa;
+}
+
+.card.map-card .living-coral {
+  background-color: #fa7268;
+}
+
+.card.map-card .living-coral-text {
+  color: #fa7268;
+}
+
+.card.map-card .table th {
+  width: 2rem;
+}
+
+.card.map-card .pt-3-5 {
+  padding-top: 1.25rem;
+}
+
+.card.map-card .card-body {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  top: 20%;
+  overflow: hidden;
+  background-color: transparent;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  -webkit-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.card.map-card .card-body.closed {
+  top: 100%;
+  height: 7.5rem;
+  margin-top: -7.5rem;
+}
+
+.card.map-card .map-container {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.card.map-card .map-container iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.card.map-card .button .btn-floating {
+  margin-top: -1.5rem;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 70vh;
+  background: url("https://mdbcdn.b-cdn.net/img/new/slides/025.webp") top center;
+  background-size: cover;
+  position: relative;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .container {
+  padding-top: 72px;
+}
+
+@media (max-width: 992px) {
+  #hero .container {
+    padding-top: 62px;
+  }
+}
+
+#hero h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+#hero p {
+  color: #eee;
+  margin: 10px 0 0 0;
+  font-size: 24px;
+}
+
+#hero .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 35px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-top: 30px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+#hero .btn-get-started:hover {
+  background: var(--hedgehog);
+  border: 2px solid var(--hedgehog);
+}
+
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  #hero {
+    height: 70vh;
+  }
+
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Carousel Section
+--------------------------------------------------------------*/
+
+
+@media (max-width: 767px) {
+        .carousel-inner .carousel-item > div {
+            display: none;
+        }
+        .carousel-inner .carousel-item > div:first-child {
+            display: block;
+        }
+    }
+
+    .carousel-inner .carousel-item.active,
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+        display: flex;
+    }
+
+    /* medium and up screens */
+    @media (min-width: 768px) {
+
+        .carousel-inner .carousel-item-end.active,
+        .carousel-inner .carousel-item-next {
+            transform: translateX(25%);
+        }
+
+        .carousel-inner .carousel-item-start.active,
+        .carousel-inner .carousel-item-prev {
+            transform: translateX(-25%);
+        }
+    }
+
+    .carousel-inner .carousel-item-end,
+    .carousel-inner .carousel-item-start {
+        transform: translateX(0);
+    }
