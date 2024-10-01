@@ -17,35 +17,44 @@ const utils_1 = require("../utils/utils");
 const books_1 = require("../services/books");
 const fs_1 = __importDefault(require("fs"));
 const router = express_1.default.Router();
-router.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    //    const items = await items_by_category('https://aen.pythonanywhere.com/reports');
-    //    res.send(items);
-    //    res.render('main/home', toArray(items));
-    const data = (0, books_1.getBooks)();
-    const category = 'division';
-    const cats = (0, utils_1.toCategory)(data, category);
-    res.render('main/magazine', (0, utils_1.toArray)(cats));
+const item = (0, books_1.getBook)();
+const chapter = 'chapter';
+const items = (0, books_1.getBooks)();
+const division = 'division';
+router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const category = (0, utils_1.toCategory)(item, chapter);
+    res.render('main/home', (0, utils_1.toArray)(category));
+}));
+router.get("/ensino", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const category = (0, utils_1.toCategory)(item, chapter);
+    res.render('main/ensino', (0, utils_1.toArray)(category));
+}));
+router.get("/pesquisa", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const category = (0, utils_1.toCategory)(items, division);
+    res.render('main/pesquisa', (0, utils_1.toArray)(category));
 }));
 router.get('/book/:key?', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const book_key = req.params.key;
-    const books = (0, books_1.getBooks)();
-    const book = books.items.filter((book) => book.key === book_key);
+    const book = items.filter((book) => book.key === book_key);
     res.render('main/book', book[0]);
 }));
-router.get('/about', (req, res) => {
+router.get('/about', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('main/about');
-});
-router.get('/contact', (req, res) => {
+}));
+router.get('/mission', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.render('main/mission');
+}));
+router.get('/contact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('main/contact');
-});
-router.get('/ch5m3d', (req, res) => {
+}));
+router.get('/ch5m3d', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('main/ch5m3d');
-});
-router.get('/material', (req, res) => {
+}));
+router.get('/faq', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     //fs.writeFileSync('public/test/notes.txt', JSON.stringify(result));
     const data = fs_1.default.readFileSync('./src/main/tmp.txt', { encoding: 'utf8', flag: 'r' });
     console.log(JSON.stringify(data));
     res.send(data);
-});
+}));
 exports.default = router;
 //# sourceMappingURL=main.js.map

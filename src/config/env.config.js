@@ -15,6 +15,7 @@ const validateEnv = () => {
             port: +envVars.PORT,
             env: envVars.NODE_ENV,
             MONGO_DB_URI: envVars.MONGO_DB_URI,
+            X_API_Key: envVars.X_API_Key,
             jwtconfig: {
                 accessSecret: envVars.JWT,
                 refreshaccessSecret: envVars.JWT_REFRESH,

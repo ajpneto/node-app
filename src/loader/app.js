@@ -25,6 +25,10 @@ hbs_1.default.registerHelper('trimString', function (passedString) {
     var theString = passedString.substring(0, 200);
     return new hbs_1.default.SafeString(theString);
 });
+hbs_1.default.registerHelper('replaceString', function (passedString) {
+    var theString = passedString.replace("_", " ");
+    return new hbs_1.default.SafeString(theString);
+});
 hbs_1.default.registerHelper('for', function (from, to, incr, block) {
     var accum = '';
     for (var i = from; i < to; i += incr)

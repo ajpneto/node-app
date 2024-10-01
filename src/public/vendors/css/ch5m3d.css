@@ -1,0 +1,200 @@
+.QCHeader {
+  margin: 0;
+  color: navy;  /* #FFB800 */
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  }
+
+.SFHeader {
+  color: navy;  /* #FFB800 */
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  }
+
+.SFHeader a {
+  padding-right: 100px;
+  }
+
+#Toolbar {
+  width: 95%;
+  height: 1em;
+  padding: 10px 5px;
+  list-style: none;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: navy;
+  }
+
+#Toolbar ul {
+  height: 0.5em;
+  }
+
+#Toolbar li {
+  float: left;
+  width: 10em;
+  height: 1.5em;
+  padding: 0 20px;
+  list-style: none;
+  background-color: navy;
+  color: yellow;
+  }
+
+#Toolbar li ul {
+  position: absolute;
+  width: 10em;
+  padding: 0;
+  left: -999em;
+  }
+
+#Toolbar li:hover ul {
+  left: auto;
+  }
+
+#Toolbar a {
+  display: block;
+  margin: 0;
+  text-align: left;
+  text-decoration: none;
+  font-weight: normal;
+  color: white;
+  }
+
+#Toolbar a:hover {
+  font-weight: normal;
+  color: navy;
+  background-color: lightsteelblue;
+  }
+
+div.BrowserTest {
+  width: 40%;
+  margin: 0 auto;
+  padding: 3px;
+  border: 3px solid black;
+  text-align: center;
+  background-color: red;
+  }
+
+div.Footer {
+  width: 98%;
+  padding: 5px;
+  margin: 30px auto 0 auto;
+  border-top: 3px solid #1729B0;
+  text-align: center;
+  color: navy;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  }
+
+textarea {
+  resize:both;  /* none|horizontal|vertical|both */
+  }
+
+br {
+  clear: left;
+  }
+
+P.clear {
+  clear: both;
+  float: none;
+  height: 1px;
+  }
+
+P.indent {
+  text-indent: 3em;
+  }
+
+div.viewDiv {
+  visibility: visible;
+  display: inline;
+  }
+
+div.drawDiv {
+  visibility: visible;
+  display: none;
+  }
+
+.drawWin {
+  /* width: 510px; */
+  clear: both;
+  float: left;
+  padding: 5px;
+  }
+
+P.fleft {
+  padding: 0px 40px 0px 0px;
+  float: left;
+  }
+
+P.center {
+  text-align: center;
+  font-size: 16px;
+  font-family: Times-Roman,Bookman,serif;
+  font-weight: normal;
+  font-variant: small-caps;
+  padding: 0px;
+  color: navy;
+  }
+
+P.center a {
+  text-decoration: none;
+  color: navy;
+  }
+
+td {
+  text-align: center;
+  }
+
+.modeTab {
+  background-color: silver;
+  }
+
+.Button {
+  background-color: silver;
+  }
+
+.plabel { background-color: antiquewhite; display: table-cell; color: navy; }
+.MOff  { background-color: antiquewhite; display: table-cell; color: antiquewhite; }
+.MOn   { background-color: antiquewhite; display: table-cell; color: navy; }
+.Row   { background-color: antiquewhite; display: none; }
+.main { background-color: silver; }
+.metl { background-color: silver; display: none; }
+
+table.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+div.gallery {
+  clear: both;
+  }
+
+div.galleryframe {
+  float:left;
+  width:300px;
+  padding:10px;
+  border:2px solid navy;
+  margin: 5px;
+  background: #eee;
+  }
+
+div.screenshot {
+  padding:5px 5px;
+  width: 210px;
+  float: left;
+  text-align: center;
+  }
+
+div.logo {
+  padding: 0px 10px;
+  float: left;
+  text-align: center;
+  }
+
+P.author {
+  clear: both;
+  margin-left: 3em;
+  }

@@ -1,20 +1,17 @@
-<div class="container">
-
-<!--<h4 class="text-info">Bootstrap 5 Multiple Image Slider - Carousel</h4>-->
-<div class="container text-center my-3">
-        <div class="row mx-auto my-auto justify-content-center">
+        <div>
+        <!--<div class="row mx-auto my-auto justify-content-center">-->
             <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <div class="col-md-3">
                             <div class="card"><a href="/books/2lq6znbrsnjy">
                                 <div class="card-img">
-                                    <img src="/img/banner5.jpg" class="img-fluid rounded">
+                                    <img src="https://th.bing.com/th/id/R.7e7a5d16eb6efdf36d154310bf1d3e2d?rik=Dq4QmYFpr2WJOw&pid=ImgRaw&r=0" class="img-fluid rounded">
                                 </div>
                                 <div class="card-img-overlay text-white">Projeto AEN</div></a>
                             </div>
                         </div>
-                    </div>{{#each this}}{{#each value}}
+                    </div>{{#each this}}{{#each items}}
                     <div class="carousel-item">
                         <div class="col-md-3">
                             <div class="card"><a href="{{url}}">
@@ -35,11 +32,7 @@
                 </a>
             </div>
         </div>      
-    </div>
 
-</div>
-
-</div>
 
 <script>
 let items = document.querySelectorAll('.carousel .carousel-item')

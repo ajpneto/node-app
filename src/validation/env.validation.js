@@ -13,5 +13,6 @@ exports.envSchema = zod_1.z.object({
     SMTP_SERVICE: zod_1.z.string().min(1, { message: "SMTP_SERVICE is required" }),
     SMTP_MAIL: zod_1.z.string().min(1, { message: "SMTP_MAIL is required" }),
     SMTP_PASSWORD: zod_1.z.string().min(1, { message: "SMTP_PASSWORD is required" }),
+    X_API_Key: zod_1.z.string().min(1, { message: "X-API-Key is required" })
 });
 //# sourceMappingURL=env.validation.js.map
