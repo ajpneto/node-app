@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const http_1 = require("http");
 const logger_1 = require("./src/config/logger");
-const env_config_1 = require("./src/config/env.config");
 const loader_1 = require("./src/loader");
 const exitHandler = (server) => {
     if (server) {
@@ -39,7 +38,7 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     const app = (0, express_1.default)();
     yield (0, loader_1.bootstrap)(app);
     const httpServer = (0, http_1.createServer)(app);
-    const port = (0, env_config_1.validateEnv)().port;
+    const port = 5000;
     const server = httpServer.listen(port, () => {
         logger_1.logger.info(`Server listening on port ${port}`);
     });
