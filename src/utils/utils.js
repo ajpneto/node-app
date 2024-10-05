@@ -12,11 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toArray = toArray;
 exports.toCategory = toCategory;
+exports.toArray = toArray;
 exports.paginate = paginate;
 const axios_1 = __importDefault(require("axios"));
 const env_config_1 = require("../config/env.config");
+;
+function toCategory(items, category) {
+    const result = items.reduce((accum, curr) => {
+        (accum[curr[category]] = accum[curr[category]] || []).push(curr);
+        return accum;
+    }, {});
+    return result;
+}
 ;
 function toArray(data) {
     const items = [];
@@ -26,14 +34,6 @@ function toArray(data) {
     }
     ;
     return items;
-}
-;
-function toCategory(items, category) {
-    const result = items.reduce((accum, curr) => {
-        (accum[curr[category]] = accum[curr[category]] || []).push(curr);
-        return accum;
-    }, {});
-    return result;
 }
 ;
 function paginate(model) {
