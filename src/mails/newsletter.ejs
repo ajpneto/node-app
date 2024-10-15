@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciência, Tecnologia e Sociedade</title>
+    <style>
+        .container {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        .email-header {
+            background: url("https://th.bing.com/th/id/R.7e7a5d16eb6efdf36d154310bf1d3e2d?rik=Dq4QmYFpr2WJOw&pid=ImgRaw&r=0") top center;
+            background-color: #0dcaf0;
+            color: #000;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #0dcaf0;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 0 0 8px 8px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #333;
+            font-size: 20px;
+            margin: 0;
+        }
+        p {
+            color: #666;
+            text-align: justify;
+        }
+        .wrapper {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="email-header">
+            Ciência, Tecnologia e Sociedade
+        </div>
+        <p>Dear <%= user %>,</p>
+    <div class="wrapper">
+        <%- include('./test.ejs') %>
+    </div>
+        <p>Thank you,</p>
+        <p><img src="https://node-app-idft.onrender.com/img/image.png" width="55">AEN TECHNOLOGY</p>
+        <div class="footer">
+            &copy; <%= new Date().getFullYear() %>. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

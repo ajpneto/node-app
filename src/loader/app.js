@@ -6,12 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.bootstrapExpress = void 0;
 const dotenv_1 = require("dotenv");
 const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
+const morgan_1 = __importDefault(require("morgan"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const routes_1 = __importDefault(require("../routes"));
+const index_api_1 = __importDefault(require("../api/index.api"));
 const index_middleware_1 = require("../middleware/index.middleware");
-const corsOption_1 = require("../config/corsOption");
+const express_mongo_sanitize_1 = __importDefault(require("express-mongo-sanitize"));
+const morgan_2 = require("../config/morgan");
 const hbs_1 = __importDefault(require("hbs"));
 const path_1 = __importDefault(require("path"));
 (0, dotenv_1.config)();
@@ -36,6 +38,10 @@ hbs_1.default.registerHelper('for', function (from, to, incr, block) {
     return accum;
 });
 const bootstrapExpress = (app) => {
+    app.use(morgan_2.successHandler);
+    app.use(morgan_2.errorHandler);
+    app.use((0, express_mongo_sanitize_1.default)());
+    app.use((0, morgan_1.default)("dev"));
     /*    app.use(helmet());
         app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
         app.use(helmet.xssFilter());
@@ -47,15 +53,16 @@ const bootstrapExpress = (app) => {
                 upgradeInsecureRequests: [],
             },
         }));*/
-    app.use((0, cors_1.default)());
+    //    app.use(cors());
     app.use(express_1.default.json());
-    app.use((0, cors_1.default)(corsOption_1.corsOptions));
+    //    app.use(cors(corsOptions));
     app.use((0, cookie_parser_1.default)());
     app.use(body_parser_1.default.urlencoded({ extended: true, limit: "30mb" }));
     app.use(express_1.default.static(path_1.default.join('./src/', 'public')));
     app.set('view engine', 'hbs');
     app.set('views', path_1.default.join('./src/', 'views'));
     app.use("/", routes_1.default);
+    app.use("/api/", index_api_1.default);
     app.use(index_middleware_1.notFoundMiddleware);
     app.use(index_middleware_1.errorHandlerMiddleware);
 };

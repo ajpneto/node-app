@@ -241,9 +241,9 @@ h1 {
   margin-bottom: 20px;
 }
 .panel-default>.panel-heading {
-  background: -moz-linear-gradient(45deg, #0d6efd 1%,#000 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(45deg, #0d6efd 1%,#000 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(-135deg, #0d6efd 1%,#000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(45deg, #20c997 1%,#000 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #20c997 1%,#000 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(-135deg, #20c997 1%,#000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   color: #ffffff; 
   padding: 18px;
 }

@@ -77,6 +77,7 @@
             <div>
                    {{>navbar}}
                 <main class="container">
+                   {{>messages}}
                    <!--<div class="d-block d-sm-none p-5"></div>-->
                    {{{ body }}}
                    <!-- Back to Top -->
@@ -84,7 +85,6 @@
                      <i class="h1 bi bi-arrow-up-circle-fill"></i>
                    </button>
                 </main>
-                   {{!-->footer--}}
             </div>
 
            <!-- Bootstrap core JS-->
@@ -117,5 +117,6 @@
              });
            </script>
            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{{>footer}}
     </body>
 </html>
