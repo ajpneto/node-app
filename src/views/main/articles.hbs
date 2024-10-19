@@ -1,0 +1,59 @@
+<div hidden id="TOC"><b>Sumário</b></div>
+   <section class="py-5">
+       <div class="container">
+           <div class="row d-md-none"><img class="img-responsive" src="/img/aennews.jpg"></div>
+           <div class="row gx-5">
+               <div class="col-xl-8">
+                   <!--<div class="news mb-3"></div>-->
+<h1 class="h2">Recent</h1><hr>
+                  <div class="row">
+{{#each this}}{{#if @first}}
+                  {{#each items}}
+                   <div class="col">
+                   <div class="zoom card">
+                       <div class="card-body">
+                          <div class="text-center"><a href="/material/book/{{key}}">
+                              <img class="flex-shrink-0 img-fluid rounded" src="{{image}}" alt=""></a>
+                              <div class="h6 fw-bolder">{{title}}</div>
+                              <p class="text-muted mb-4">
+                                  {{publish_date}}
+                                  <br />
+                              </p>
+                          </div>
+                       </div>
+                   </div>
+                   </div>
+                  {{/each}}
+{{/if}}{{/each}}
+                  </div>
+
+
+               </div>
+               <div class="col-xl-4 mt-5">
+<h1 class="h2">Categories</h1><hr>
+                   {{>sidebar}}
+               </div>
+           </div>
+       </div>
+   </section>
+
+<script>
+/* Notícias */
+fetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=9').then((response) => {
+    response.json().then((data) => {
+        if (data.error) {
+            console.log(data.error)
+        } else {
+            data.items.forEach((item) => {
+
+                str = `<div class="small text-muted">${item.data_publicacao}</div>
+                          <a class="link-dark" href="${item.link}"><h3>${item.titulo}</h3></a>
+                       </div>`
+
+                $('.news').append(str);
+            });
+        }
+    });
+});
+</script>
+	

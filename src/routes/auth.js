@@ -17,19 +17,19 @@ const token_model_1 = __importDefault(require("../model/token.model"));
 const router = express_1.default.Router();
 router.get('/register', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('auth/register', {
-        message: 'User already registered.',
+        message: 'Sign up to access more content.',
         messageClass: 'alert-danger'
     });
 }));
 router.get('/activate', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('auth/activate', {
-        message: 'User already registered.',
+        message: 'Activate your account to access more content.',
         messageClass: 'alert-danger'
     });
 }));
 router.get('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('auth/login', {
-        message: 'User already registered.',
+        message: 'Please log in to access this content.',
         messageClass: 'alert-danger'
     });
 }));

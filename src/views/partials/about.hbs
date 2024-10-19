@@ -4,41 +4,38 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="row g-3">
+                            {{#each this}}
+                            {{#each items}}
                             <div class="col-6 text-start">
-                                <img class="zoom img-fluid rounded wow zoomIn" data-wow-delay="0.1s" src="/img/aennews.jpg">
+                                <img class="zoom img-fluid rounded wow zoomIn" data-wow-delay="0.1s" src="{{image}}">
                             </div>
-                            <div class="col-6 text-start">
-                                <img class="zoom img-fluid rounded wow zoomIn" data-wow-delay="0.3s" src="/img/atom.png" style="margin-top: 11%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="zoom img-fluid rounded wow zoomIn" data-wow-delay="0.5s" src="/img/particles.png">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="zoom img-fluid rounded wow zoomIn" data-wow-delay="0.7s" src="/img/the-shapes-of-atomic-orbitals.jpg" style="margin-top: 11%;">
-                            </div>
+                            {{/each}}
+                            {{/each}}
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <h1 class="h2 mb-4 fw-bold">Bem vindo à AENTECH</h1>
-                        <p class="lead fw-normal text-muted mb-3">Caro estudante, imagine que você foi convidado para fazer uma viagem incrível para um mundo fascinante e intrigante chamado química.</p>
-                        <p class="lead fw-normal text-muted mb-3">Inicialmente, você tomou um mapa das ciências para obter algumas noções de direção e traçar o melhor roteiro de viagem.</p>
-                        <p class="lead fw-normal text-muted mb-3">A viagem ao mundo da química deve ser encarada como uma viagem interdisciplinar, em que o conhecimento das ciências é a bagagem necessária para que este mundo seja explorado com sucesso e prazer.</p>
+                        <h1 class="h2 mb-4 fw-bold">Bem vindo à <span class="text-info">AENTECH</span></h1>
+                        {{#each this}}
+                          {{#each items}}
+                            <p class="lead fw-normal text-muted mb-3">{{content}}</p>
+                          {{/each}}
+                        {{/each}}
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center">
-                                    <h1 class="flex-shrink-0 display-5 mb-0 fw-bold text-primary"><span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="2" class="purecounter"></span></h1>
+                                    <h1 class="flex-shrink-0 display-5 mb-0 fw-bold text-info">+<span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="2" class="purecounter"></span></h1>
                                     <div class="ps-4">
-                                        <p class="mb-0 fw-bold text-warning">Anos de</p>
-                                        <h6 class="text-uppercase mb-0 fw-bold text-warning">Experiência</h6>
+                                        <p class="mb-0 fw-bold">Anos de</p>
+                                        <h6 class="text-uppercase mb-0 fw-bold">Experiência</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center px-3">
-                                    <h1 class="flex-shrink-0 display-5 mb-0 fw-bold text-primary"><span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2" class="purecounter"></span></h1>
+                                    <h1 class="flex-shrink-0 display-5 mb-0 fw-bold text-info"><span data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="2" class="purecounter"></span></h1>
                                     <div class="ps-4">
-                                        <p class="mb-0 fw-bold text-warning">Populares</p>
-                                        <h6 class="text-uppercase mb-0 fw-bold text-warning">Master Chefs</h6>
+                                        <p class="mb-0 fw-bold">Artigos</p>
+                                        <h6 class="text-uppercase mb-0 fw-bold">Publicações</h6>
                                     </div>
                                 </div>
                             </div>

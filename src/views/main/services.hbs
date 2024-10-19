@@ -1,3 +1,35 @@
 <div hidden id="TOC"><b>Sumário</b></div>
-{{>header}}
-{{>bookscat}}
+   <section class="py-5">
+       <div class="container">
+           <div class="row d-md-none"><img class="img-responsive" src="/img/aennews.jpg"></div>
+           <div class="row gx-5">
+               <div class="col-xl-8"><h1 class="h2">Notícias</h1>
+                   <div class="news mb-3"></div>
+               </div>
+               <div class="col-xl-4 mt-5"><hr><h1 class="h2">Blog</h1><hr>
+                   {{>sidebar}}
+               </div>
+           </div>
+       </div>
+   </section>
+
+<script>
+/* Notícias */
+fetch('https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=9').then((response) => {
+    response.json().then((data) => {
+        if (data.error) {
+            console.log(data.error)
+        } else {
+            data.items.forEach((item) => {
+
+                str = `<div class="small text-muted">${item.data_publicacao}</div>
+                          <a class="link-dark" href="${item.link}"><h3>${item.titulo}</h3></a>
+                       </div>`
+
+                $('.news').append(str);
+            });
+        }
+    });
+});
+</script>
+	

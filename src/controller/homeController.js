@@ -12,20 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getHomePage = void 0;
 const express_1 = __importDefault(require("express"));
+const utils_1 = require("../utils/utils");
 const books_1 = require("../services/books");
 const router = express_1.default.Router();
-const item = (0, books_1.getArticles)();
+const item = (0, books_1.getBook)();
 const chapter = 'chapter';
 const items = (0, books_1.getBooks)();
 const division = 'division';
-router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render('material/ch5m3d');
+const item1 = (0, books_1.getAbout)();
+const chapter1 = 'chapter';
+exports.getHomePage = ((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const category = (0, utils_1.toCategory)(item1, chapter1);
+    res.render('main/home', (0, utils_1.toArray)(category));
 }));
-router.get('/book/:key?', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const book_key = req.params.key;
-    const book = item.filter((book) => book.key === book_key);
-    res.render('material/book', book[0]);
-}));
-exports.default = router;
-//# sourceMappingURL=material.js.map
+//# sourceMappingURL=homeController.js.map
