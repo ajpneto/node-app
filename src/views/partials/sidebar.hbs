@@ -14,7 +14,7 @@
 	          <div class="panel-body p-3">
                   <div class="row">
                   {{#each items}}
-                    <div class="h6 fw-bolder"><a href="/material/book/{{key}}">{{title}}</a></div><hr>
+                    <div class="h6 fw-bolder"><a href="/lessons/{{key}}">{{title}}</a></div><hr>
                   {{/each}}
                   </div>
                   </div>
@@ -23,3 +23,9 @@
            {{/each}}
          </div>
       </div>
+<center>
+    <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal4">
+      <strong class="text-white">View periodic table</strong>
+    </button>
+</center>
+{{>modal4}}

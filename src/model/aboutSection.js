@@ -41,4 +41,4 @@ const paragraph = {
     ]
 };
 exports.default = paragraph;
-//# sourceMappingURL=about.js.map
+//# sourceMappingURL=aboutSection.js.map

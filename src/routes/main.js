@@ -16,54 +16,36 @@ const express_1 = __importDefault(require("express"));
 const utils_1 = require("../utils/utils");
 const books_1 = require("../services/books");
 const fs_1 = __importDefault(require("fs"));
-const authJWT_middleware_1 = require("../middleware/authJWT.middleware");
 const nodemailer_1 = __importDefault(require("nodemailer"));
 const ejs_1 = __importDefault(require("ejs"));
 const env_config_1 = require("../config/env.config");
-const homeController_1 = require("../controller/homeController");
+const main_controller_1 = require("../controller/main/main.controller");
 const router = express_1.default.Router();
-const item = (0, books_1.getBook)();
-const chapter = 'chapter';
-const items = (0, books_1.getBooks)();
+const items = (0, books_1.getArticles)();
 const division = 'division';
-const item1 = (0, books_1.getAbout)();
-const chapter1 = 'chapter';
-const item2 = (0, books_1.getArticles)();
-const chapter2 = 'chapter';
-/*router.get('/', async (req: Request, res: Response) => {
-    const category: {} = toCategory(item1, chapter1);
-    res.render('main/home', toArray(category));
-});*/
-router.get('/', homeController_1.getHomePage);
-router.get('/about', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render('main/mission');
-}));
-router.get("/chemistry", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const category = (0, utils_1.toCategory)(item, chapter);
-    res.render('main/research', (0, utils_1.toArray)(category));
-}));
-router.get("/research", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/', main_controller_1.getHomePage);
+router.get('/about', main_controller_1.getAboutPage);
+router.get('/services', main_controller_1.getServicePage);
+router.get('/faq', main_controller_1.getFaqPage);
+router.get('/contact', main_controller_1.getContactPage);
+router.get('/research', main_controller_1.getResearchPage);
+router.get('/research/:key?', main_controller_1.getResearchContent);
+router.get('/lessons', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const category = (0, utils_1.toCategory)(items, division);
-    res.render('main/research', (0, utils_1.toArray)(category));
+    res.render('main/lessons', (0, utils_1.toArray)(category));
 }));
-router.get('/articles', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const category = (0, utils_1.toCategory)(item2, chapter2);
-    res.render('main/articles', (0, utils_1.toArray)(category));
+router.get('/lessons/:key?', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const book_key = req.params.key;
+    const book = items.filter((book) => book.key === book_key);
+    res.render('main/book', book[0]);
 }));
-router.get('/contact', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render('main/contact');
+router.get('/ch5m3d', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.render('main/ch5m3d');
 }));
-router.get('/faq', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render('main/faq');
-}));
-router.get('/services', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const category = (0, utils_1.toCategory)(items, division);
-    res.render('main/services', (0, utils_1.toArray)(category));
-}));
-router.get('/test', authJWT_middleware_1.AuthJWT, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/test', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('main/test');
 }));
-router.get('/create', authJWT_middleware_1.AuthJWT, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/publish', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     //fs.writeFileSync('public/test/notes.txt', JSON.stringify(result));
     const data = fs_1.default.readFileSync('./src/routes/tmp.txt', { encoding: 'utf8', flag: 'r' });
     console.log(JSON.stringify(data));

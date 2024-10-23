@@ -41,7 +41,7 @@ const startServer = () => __awaiter(void 0, void 0, void 0, function* () {
     const httpServer = (0, http_1.createServer)(app);
     const port = (0, env_config_1.validateEnv)().port;
     const server = httpServer.listen(port, () => {
-        logger_1.logger.info(`server listening on port ${port}`);
+        logger_1.logger.info(`Server listening on port ${port}`);
     });
     process.on('uncaughtException', unExpectedErrorHandler(server));
     process.on('unhandledRejection', unExpectedErrorHandler(server));
