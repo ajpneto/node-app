@@ -42,6 +42,6 @@ exports.activateUser = (0, express_async_handler_1.default)((req, res) => __awai
     yield (0, profile_services_1.createProfile)(userId);
     // Save updated user
     yield user.save();
-    res.status(201).json({ message: 'Verified successfully', success: true });
+    res.status(201).render('auth/login', { message: 'Verified successfully', success: true, messageClass: 'alert-success' });
 }));
 //# sourceMappingURL=activateEmail.controller.js.map

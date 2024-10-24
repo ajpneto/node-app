@@ -6,31 +6,33 @@
     <title>Ciência, Tecnologia e Sociedade</title>
     <style>
         .container {
-            background-color: #f4f4f4;
+            background-color: #E6EFFF;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
             width: 100%;
             max-width: 600px;
         }
-        .email-header {
+        .header {
             background: url("https://th.bing.com/th/id/R.7e7a5d16eb6efdf36d154310bf1d3e2d?rik=Dq4QmYFpr2WJOw&pid=ImgRaw&r=0") top center;
-            background-color: #0dcaf0;
-            color: #000;
-            padding: 10px;
-            border-radius: 8px 8px 0 0;
+            background-color: #00BFFF;
+            color: #FFF;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
             text-align: center;
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 20px;
         }
         .footer {
-            background-color: #0dcaf0;
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 0 0 8px 8px;
+            background-color: #708090;
+            color: #FFF;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
             text-align: center;
             font-size: 14px;
+            font-weight: bold;
             margin-top: 20px;
         }
         h2 {
@@ -46,19 +48,32 @@
             font-size: 16px;
             margin-bottom: 20px;
         }
+
+  @media screen and (max-width: 600px) {
+    .container {
+        width: 100% !important;
+        display: block !important;
+        padding: 2px !important;
+    }
+    .header, .body, .footer {
+        padding: 20px !important;
+    }
+  }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="email-header">
-            Ciência, Tecnologia e Sociedade
+        <div class="header">
+            AENTECH </br> <span style="color:#2F4F4F;">Ciência, Tecnologia e Sociedade</span>
         </div>
         <p>Dear <%= user %>,</p>
     <div class="wrapper">
         <%- include('./test.ejs') %>
     </div>
-        <p>Thank you,</p>
-        <p><img src="https://node-app-idft.onrender.com/img/image.png" width="55">AEN TECHNOLOGY</p>
+        <p>Thanks for subscribing,</p>
+        <p>
+          <a href="https://aentechnology.com"><img src="https://node-app-idft.onrender.com/img/image.png" width="55"></a>
+        </p>
         <div class="footer">
             &copy; <%= new Date().getFullYear() %>. All rights reserved.
         </div>

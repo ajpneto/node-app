@@ -9,7 +9,7 @@ const paragraph = {
             "image": "/img/aennews.jpg",
             "key": "bi-calculator-fill",
             "timestamp": "text-secondary",
-            "title": "Desenvolvimento da Química como ciência"
+            "title": "O Aspecto da Química como Ciência"
         },
         {
             "content": "Inicialmente, você tomou um mapa das ciências para obter algumas noções de direção e traçar o melhor roteiro de viagem.",

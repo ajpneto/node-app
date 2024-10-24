@@ -49,7 +49,11 @@ const AuthJWT = (req, res, next) => {
         }));
     }
     catch (err) {
-        throw new unauthenticated_errors_1.default("Provide token", custom_errors_1.ErrorCode.TOKEN_NOT_FOUND);
+        res.render('auth/login', {
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+        //throw new UnAuthenticatedError("Provide token", ErrorCode.TOKEN_NOT_FOUND);
     }
 };
 exports.AuthJWT = AuthJWT;

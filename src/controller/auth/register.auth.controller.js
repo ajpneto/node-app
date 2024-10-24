@@ -13,14 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.registerUser = void 0;
-const badRequest_errors_1 = __importDefault(require("../../errors/badRequest.errors"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const util_1 = require("../../utils/util");
 const express_async_handler_1 = __importDefault(require("express-async-handler"));
 const user_services_1 = require("../../services/user.services");
-const custom_errors_1 = require("../../errors/custom.errors");
 const role_services_1 = require("../../services/role.services");
-const event_emitter_1 = require("../../config/event-emitter");
 //@desc signup
 //@method POST  /auth/signup
 //@access public
@@ -30,7 +27,9 @@ exports.registerUser = (0, express_async_handler_1.default)((req, res) => __awai
     // Check if user already exists
     const userExists = yield (0, user_services_1.findUserByEmail)(email);
     if (userExists) {
-        throw new badRequest_errors_1.default('User with this email already exists', custom_errors_1.ErrorCode.BAD_REQUEST);
+        //throw new BadRequestError('User with this email already exists', ErrorCode.BAD_REQUEST);
+        return res.status(400).render('auth/register', { message: 'User with this email already exists', success: false,
+            messageClass: 'alert-danger' });
     }
     const roles = yield (0, role_services_1.getAllRole)();
     const role = roles.find(r => r.name === "SUPER_ADMIN");
@@ -43,7 +42,8 @@ exports.registerUser = (0, express_async_handler_1.default)((req, res) => __awai
     console.log(verificationExpires);
     // Create the user
     yield (0, user_services_1.createUser)(Object.assign(Object.assign({}, req.body), { role: role, password: hashPassword, OTPCode: code, OTPCodeExpires: Date.now() + verificationExpires }));
-    event_emitter_1.EventEmitterInstance.emit('signup', { code, name, email });
-    res.status(201).json({ success: true, message: 'Verification email sent', messageClass: 'alert-success' });
+    //    EventEmitterInstance.emit('signup', { code, name, email });
+    res.status(201).render('auth/activate', { message: 'Activatate your account to continue', success: true,
+        messageClass: 'alert-warning' });
 }));
 //# sourceMappingURL=register.auth.controller.js.map

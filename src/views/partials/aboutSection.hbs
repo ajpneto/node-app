@@ -4,7 +4,7 @@
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <div class="row g-3">
-                            {{#each this}}
+                            {{#each this.about}}
                             {{#each items}}
                             <div class="col-6 text-start">
                                 <img class="zoom img-fluid rounded wow zoomIn" data-wow-delay="0.1s" src="{{image}}">
@@ -14,8 +14,8 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <h1 class="h2 mb-4 fw-bold">Bem vindo à <span class="text-info">AENTECH</span></h1>
-                        {{#each this}}
+                        <h1 class="h2 mb-4 fw-bold">Bem vindo à <span class="text-info">Nossa página</span></h1>
+                        {{#each this.about}}
                           {{#each items}}
                             <p class="lead fw-normal text-muted mb-3">{{content}}</p>
                           {{/each}}

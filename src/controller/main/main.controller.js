@@ -24,8 +24,9 @@ const articlesDivision = 'division';
 const aboutItem = (0, books_1.getAbout)();
 const chapter = 'chapter';
 exports.getHomePage = ((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const category = (0, utils_1.toCategory)(aboutItem, chapter);
-    res.render('main/home', (0, utils_1.toArray)(category));
+    const section = (0, utils_1.toCategory)(aboutItem, chapter);
+    const category = (0, utils_1.toCategory)(bookItems, bookDivision);
+    res.render('main/home', { about: (0, utils_1.toArray)(section), success: (0, utils_1.toArray)(category) });
 }));
 exports.getAboutPage = ((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('main/about');
@@ -34,7 +35,8 @@ exports.getFaqPage = ((req, res) => __awaiter(void 0, void 0, void 0, function* 
     res.render('main/faq');
 }));
 exports.getContactPage = ((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render('main/contact');
+    res.render('main/contact', { message: 'Sugestões ou dúvidas, envie-nos uma mensagem', success: true,
+        messageClass: 'alert-info' });
 }));
 exports.getServicePage = ((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.render('main/about');
